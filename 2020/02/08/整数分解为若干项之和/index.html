@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/2 | 笔记狗</title>
+  <title>7-33 整数分解为若干项之和 (20分) | 笔记狗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="笔记狗">
-<meta property="og:url" content="http://yoursite.com/archives/2020/02/index.html">
+  <meta name="description" content="题目 采用DFS（深度优先搜索算法）解题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="7-33 整数分解为若干项之和 (20分)">
+<meta property="og:url" content="http://yoursite.com/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/index.html">
 <meta property="og:site_name" content="笔记狗">
+<meta property="og:description" content="题目 采用DFS（深度优先搜索算法）解题">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/1.png">
+<meta property="article:published_time" content="2020-02-08T09:04:53.000Z">
+<meta property="article:modified_time" content="2020-02-08T10:11:15.637Z">
 <meta property="article:author" content="长青">
+<meta property="article:tag" content="编程题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/1.png">
   
     <link rel="alternative" href="/atom.xml" title="笔记狗" type="application/atom+xml">
   
@@ -140,36 +147,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-整数分解为若干项之和" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      7-33 整数分解为若干项之和 (20分)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/" class="archive-article-date">
+
+        
+        <a href="/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/" class="archive-article-date">
   	<time datetime="2020-02-08T09:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/">7-33 整数分解为若干项之和 (20分)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><img src="/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/1.png" alt></p>
+<p>采用DFS（深度优先搜索算法）解题</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h3 id="需要解决的问题"><a href="#需要解决的问题" class="headerlink" title="需要解决的问题"></a>需要解决的问题</h3><p>其实主要还是得去看出来这是一道dfs的题，然后再去解就好多了</p>
+<p>深度优先搜索不够理解可以看上一篇：<a href>7-39求迷宫最短通道 (20分)</a></p>
+<h3 id="代码区"><a href="#代码区" class="headerlink" title="代码区"></a>代码区</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">/*整数分解为若干项之和（应该属于深度搜索中的全排列）*/</span> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span></span>;<span class="comment">//深入搜索的函数（递归函数）</span></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">40</span>]=&#123;<span class="number">0</span>&#125;;<span class="comment">//定义全局数组，用于存放若干项 </span></span><br><span class="line"><span class="keyword">int</span> n;<span class="comment">//用于接收数据，表示那个整数 </span></span><br><span class="line"><span class="keyword">int</span> k=<span class="number">0</span>;<span class="comment">//用于判断啥时候换行</span></span><br><span class="line"><span class="keyword">int</span> num=<span class="number">0</span>;<span class="comment">//表示是第几项，用于为对用的数组元素赋值</span></span><br><span class="line"><span class="keyword">int</span> sum=<span class="number">0</span>;<span class="comment">//表示各项的最终和，用于判断是否输出 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	dfs(<span class="number">1</span>);<span class="comment">//深入搜索的函数（递归函数）,传入的1其实是各项的起始点 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">if</span>(sum==n)<span class="comment">//若尝试成功了 </span></span><br><span class="line">	&#123;</span><br><span class="line">		k++;<span class="comment">//尝试成功了就开始计数 </span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d"</span>,n);</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;num;i++)<span class="comment">//输出赋值到num为止的n项</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(i==<span class="number">0</span>)	<span class="built_in">printf</span>(<span class="string">"=%d"</span>,a[i]);</span><br><span class="line">			<span class="keyword">else</span>	<span class="built_in">printf</span>(<span class="string">"+%d"</span>,a[i]);</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">if</span>(num==<span class="number">1</span> || k%<span class="number">4</span>==<span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"\n"</span>);<span class="comment">//逢4或者最后一个样例出换行</span></span><br><span class="line">		<span class="keyword">else</span>	<span class="built_in">printf</span>(<span class="string">";"</span>);<span class="comment">//否则出分号 </span></span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">if</span>(sum&gt;n)	<span class="keyword">return</span>;<span class="comment">//当sum超出范围的时候，就没有必要再算了 </span></span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span>(i=x;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		a[num++]=i;<span class="comment">//为第n项赋值 </span></span><br><span class="line">		sum=sum+i; <span class="comment">//加上第n项之后的总和</span></span><br><span class="line">		dfs(i);<span class="comment">//将i传入函数，这样其实是在尝试这个i能不能继续作为下一项（因为题目要求每一项以小为优先）</span></span><br><span class="line">		<span class="comment">//这里其实是在该项中的每一种数字（1~n）中尝试，尝试结束后就开始减一项，</span></span><br><span class="line">		<span class="comment">//举例说就是它在尝试第7项中填能填啥，都尝试完之后就开始回溯 </span></span><br><span class="line">		<span class="comment">//接下来是回溯 </span></span><br><span class="line">		sum=sum-i; <span class="comment">//当上一函数执行结束（执行成功输出了或者执行失败了就开始往回走） </span></span><br><span class="line">		num--; <span class="comment">//举例说此时就是尝试完第7项的所有数字之后，开始尝试第6项能填的数字 </span></span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>在了解深度搜索后就变得好理解多了</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>请作者喝杯咖啡呗(#^.^#)<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -181,247 +221,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/08/%E6%B1%82%E8%BF%B7%E5%AE%AB%E6%9C%80%E7%9F%AD%E9%80%9A%E9%81%93/" class="archive-article-date">
-  	<time datetime="2020-02-08T09:02:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/08/%E6%B1%82%E8%BF%B7%E5%AE%AB%E6%9C%80%E7%9F%AD%E9%80%9A%E9%81%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">7-39 求迷宫最短通道 (20分)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/08/%E6%B1%82%E8%BF%B7%E5%AE%AB%E6%9C%80%E7%9F%AD%E9%80%9A%E9%81%93/">7-39 求迷宫最短通道 (20分)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需要解决的问题"><span class="toc-number">2.</span> <span class="toc-text">需要解决的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码区"><span class="toc-number">3.</span> <span class="toc-text">代码区</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/08/%E8%9E%BA%E6%97%8B%E6%96%B9%E9%98%B5/" class="archive-article-date">
-  	<time datetime="2020-02-08T08:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/08/%E8%9E%BA%E6%97%8B%E6%96%B9%E9%98%B5/">7-37 螺旋方阵 (20分)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/08/%E6%9C%89%E7%90%86%E6%95%B0%E5%9D%87%E5%80%BC/" class="archive-article-date">
-  	<time datetime="2020-02-08T08:12:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/08/%E6%9C%89%E7%90%86%E6%95%B0%E5%9D%87%E5%80%BC/">7-31 有理数均值 (20分)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/07/%E4%B8%A4%E7%A7%8D%E6%8E%92%E5%BA%8F%EF%BC%88%E5%86%92%E6%B3%A1%E4%B8%8E%E9%80%89%E6%8B%A9%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-02-07T07:08:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/07/%E4%B8%A4%E7%A7%8D%E6%8E%92%E5%BA%8F%EF%BC%88%E5%86%92%E6%B3%A1%E4%B8%8E%E9%80%89%E6%8B%A9%EF%BC%89/">两种排序(冒泡与选择)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/%E7%94%A8%E6%89%91%E5%85%8B%E7%89%8C%E8%AE%A1%E7%AE%9724%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2020-02-06T11:20:37.850Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/%E7%94%A8%E6%89%91%E5%85%8B%E7%89%8C%E8%AE%A1%E7%AE%9724%E7%82%B9/">7-3用扑克牌计算24点 (25分)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/05/%E9%9B%B6%E5%9F%BA%E7%A1%80%E8%87%AA%E5%88%B6%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-02-05T12:33:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/05/%E9%9B%B6%E5%9F%BA%E7%A1%80%E8%87%AA%E5%88%B6%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/">对零基础自制博客的总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -444,8 +356,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
