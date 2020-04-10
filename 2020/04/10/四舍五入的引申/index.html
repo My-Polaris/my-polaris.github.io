@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 编程题 | 某黑的个人博客</title>
+  <title>四舍五入的引申 | 某黑的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="某黑的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B%E9%A2%98/index.html">
+  <meta name="description" content="前情提要：  低阶的思路：用循环去减血量且边计数，直到血量&lt;&#x3D;0时输出计数结果。（花时长，繁琐） 改良的思路：计算出打每只怪会扣的血，计算人物的血量可以打几次。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="四舍五入的引申">
+<meta property="og:url" content="http://yoursite.com/2020/04/10/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E7%9A%84%E5%BC%95%E7%94%B3/index.html">
 <meta property="og:site_name" content="某黑的个人博客">
+<meta property="og:description" content="前情提要：  低阶的思路：用循环去减血量且边计数，直到血量&lt;&#x3D;0时输出计数结果。（花时长，繁琐） 改良的思路：计算出打每只怪会扣的血，计算人物的血量可以打几次。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/04/10/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E7%9A%84%E5%BC%95%E7%94%B3/1.png">
+<meta property="article:published_time" content="2020-04-10T15:30:04.000Z">
+<meta property="article:modified_time" content="2020-04-10T16:44:10.023Z">
 <meta property="article:author" content="长青">
+<meta property="article:tag" content="编程题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/10/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E7%9A%84%E5%BC%95%E7%94%B3/1.png">
   
     <link rel="alternative" href="/atom.xml" title="某黑的个人博客" type="application/atom+xml">
   
@@ -150,37 +157,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-四舍五入的引申" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      四舍五入的引申
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+
+        
+        
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2020/04/10/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E7%9A%84%E5%BC%95%E7%94%B3/" class="archive-article-date">
   	<time datetime="2020-04-10T15:30:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/10/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E7%9A%84%E5%BC%95%E7%94%B3/">四舍五入的引申</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前情提要："><a href="#前情提要：" class="headerlink" title="前情提要："></a>前情提要：</h3><img src="/2020/04/10/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E7%9A%84%E5%BC%95%E7%94%B3/1.png">
 
-        <div class="article-info info-on-right">
-          
+<p>低阶的思路：用循环去减血量且边计数，直到血量&lt;=0时输出计数结果。（花时长，繁琐）</p>
+<p>改良的思路：计算出打每只怪会扣的血，计算人物的血量可以打几次。</p>
+<a id="more"></a>
+
+<h3 id="代码区"><a href="#代码区" class="headerlink" title="代码区"></a>代码区</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="keyword">int</span> h,a,H,A;</span><br><span class="line">    <span class="keyword">int</span> p;<span class="comment">//每次打怪兽要扣的血</span></span><br><span class="line">   	<span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;h&gt;&gt;a&gt;&gt;H&gt;&gt;A;</span><br><span class="line">        p=A*((H+a<span class="number">-1</span>)/a<span class="number">-1</span>);<span class="comment">//怪兽的攻击力*(攻击我的次数=我攻击他的次数-1)</span></span><br><span class="line">        <span class="keyword">if</span>(p)	<span class="built_in">cout</span>&lt;&lt;((h<span class="number">-1</span>)/p)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//我的生命值能承受的攻击次数</span></span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;<span class="string">"-1"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="一些引申到的关键点"><a href="#一些引申到的关键点" class="headerlink" title="一些引申到的关键点"></a>一些引申到的关键点</h3><p>1.我攻击他的次数为什么是<code>(H+a-1)/a</code>:</p>
+<p>​        由H/a(怪兽能承受我的攻击的次数)开始，当有余数的时候我还需要再补一刀，即有余数的时候要进一位(+1)，而<code>+a-1</code>则代表在给出1的容差进一位：<strong>余数&gt;=1则进一位，否则不进位</strong>。这就雷同于之前<code>(int)(a+0.5)</code>的四舍五入,&gt;=0.5进一位，否则不进位。</p>
+<p>​    后面的<code>(h-1)/p</code>也是同理，剩余的血量&gt;=1则是击杀成功，否则击杀失败。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>别...别客气<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -192,214 +239,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/10/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E7%9A%84%E5%BC%95%E7%94%B3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/" class="archive-article-date">
-  	<time datetime="2020-02-08T09:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">7-33 整数分解为若干项之和 (20分)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/08/%E6%95%B4%E6%95%B0%E5%88%86%E8%A7%A3%E4%B8%BA%E8%8B%A5%E5%B9%B2%E9%A1%B9%E4%B9%8B%E5%92%8C/">7-33 整数分解为若干项之和 (20分)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前情提要："><span class="toc-number">1.</span> <span class="toc-text">前情提要：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码区"><span class="toc-number">2.</span> <span class="toc-text">代码区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些引申到的关键点"><span class="toc-number">3.</span> <span class="toc-text">一些引申到的关键点</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/08/%E6%B1%82%E8%BF%B7%E5%AE%AB%E6%9C%80%E7%9F%AD%E9%80%9A%E9%81%93/" class="archive-article-date">
-  	<time datetime="2020-02-08T09:02:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/08/%E6%B1%82%E8%BF%B7%E5%AE%AB%E6%9C%80%E7%9F%AD%E9%80%9A%E9%81%93/">7-39 求迷宫最短通道 (20分)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/08/%E8%9E%BA%E6%97%8B%E6%96%B9%E9%98%B5/" class="archive-article-date">
-  	<time datetime="2020-02-08T08:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/08/%E8%9E%BA%E6%97%8B%E6%96%B9%E9%98%B5/">7-37 螺旋方阵 (20分)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/08/%E6%9C%89%E7%90%86%E6%95%B0%E5%9D%87%E5%80%BC/" class="archive-article-date">
-  	<time datetime="2020-02-08T08:12:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/08/%E6%9C%89%E7%90%86%E6%95%B0%E5%9D%87%E5%80%BC/">7-31 有理数均值 (20分)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/06/%E7%94%A8%E6%89%91%E5%85%8B%E7%89%8C%E8%AE%A1%E7%AE%9724%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2020-02-06T11:20:37.850Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/%E7%94%A8%E6%89%91%E5%85%8B%E7%89%8C%E8%AE%A1%E7%AE%9724%E7%82%B9/">7-3用扑克牌计算24点 (25分)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -423,9 +375,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,
