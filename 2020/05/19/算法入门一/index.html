@@ -25,13 +25,13 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/%E5%B0%BA%E5%8F%96%E6%B3%95.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/%E7%81%AF%E6%B3%A1%E7%81%AD%E7%81%AD%E7%81%AD.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%9F%BA%E7%A1%80.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/Blog/source/_posts/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/%E6%8E%92%E9%98%9F%E6%8E%A5%E6%B0%B4.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/%E6%8E%92%E9%98%9F%E6%8E%A5%E6%B0%B4.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/%E8%BF%9E%E6%95%B0%E9%97%AE%E9%A2%98.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/%E5%8C%BA%E9%97%B4%E8%A6%86%E7%9B%96(%E5%B7%A5%E4%BD%9C%E5%AE%89%E6%8E%92).png">
 <meta property="og:image" content="http://yoursite.com/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F1.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F2.png">
 <meta property="article:published_time" content="2020-05-19T04:26:44.000Z">
-<meta property="article:modified_time" content="2020-05-19T11:51:04.519Z">
+<meta property="article:modified_time" content="2020-05-19T12:11:04.198Z">
 <meta property="article:author" content="长青">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -206,36 +206,31 @@
         <p><strong>第一节课的总结</strong></p>
 <a id="more"></a>
 
-<h3 id="一-时间复杂度的介绍"><a href="#一-时间复杂度的介绍" class="headerlink" title="一.时间复杂度的介绍"></a>一.时间复杂度的介绍</h3><p>​    时间复杂度一般都会用到大O表示法，如O（n）。这里我们首先其实是要把n看成一个无穷大的数，所以会忽略低阶以及常数，比如<code>O(n)=O(Cn)=O(Cn+C)</code>,<code>O(n^2+n)=O(n^2)</code>(近似等于),冒泡排序就是O(n^2)的一个经典例。</p>
+<h2 id="一-时间复杂度的介绍"><a href="#一-时间复杂度的介绍" class="headerlink" title="一.时间复杂度的介绍"></a>一.时间复杂度的介绍</h2><p>​    时间复杂度一般都会用到大O表示法，如O（n）。这里我们首先其实是要把n看成一个无穷大的数，所以会忽略低阶以及常数，比如<code>O(n)=O(Cn)=O(Cn+C)</code>,<code>O(n^2+n)=O(n^2)</code>(近似等于),冒泡排序就是O(n^2)的一个经典例。</p>
 <p>​    <strong>所以一般看时间复杂度，只需要看循环次数，再干掉低阶和常数项。</strong></p>
 <p>下面是一张时间复杂度的排序表，从上到下逐渐复杂。</p>
-<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/时间复杂度排序.png" style="zoom:60%;">
+<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/时间复杂度排序.png" style="zoom:40%;">
 
-<h3 id="二-空间复杂度"><a href="#二-空间复杂度" class="headerlink" title="二.空间复杂度"></a>二.空间复杂度</h3><p>​    1.由于计算机存储实数的方式是通过不断乘2并以二进制存的，有些实数天然存着就会损失精度，如0.3.</p>
+<h2 id="二-空间复杂度"><a href="#二-空间复杂度" class="headerlink" title="二.空间复杂度"></a>二.空间复杂度</h2><p>​    1.由于计算机存储实数的方式是通过不断乘2并以二进制存的，有些实数天然存着就会损失精度，如0.3.</p>
 <p>​    因此，<strong>一般判断实数间是否相等的时候用的是fab(a-b)&lt;=e-9或e-6</strong>。(即允许有一点误差)</p>
 <p>​    2.在编程题中，一般对于空间的要求会是内存&lt;512M,经过换算之后，也就是说<strong>最多只能开e+8的int数组</strong>，否则就有风险造成空间超载而报错。</p>
-<h3 id="三、枚举-前缀和，差分，离散化，尺取法"><a href="#三、枚举-前缀和，差分，离散化，尺取法" class="headerlink" title="三、枚举(前缀和，差分，离散化，尺取法)"></a>三、枚举(前缀和，差分，离散化，尺取法)</h3><p><strong>1</strong>.引入题目1：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/数列求和问题.png" style="zoom:60%;"></p>
-<p>暴力解决思路：每次询问都对指定区域进行循环求和，由于查q次，每次查n个数，如果他有样例让你每次都从头查到尾，对应的最大时间复杂度为<strong>O(n*q)</strong>，我想运行超时是跑不了了。</p>
+<h2 id="三、枚举-前缀和，差分，离散化，尺取法"><a href="#三、枚举-前缀和，差分，离散化，尺取法" class="headerlink" title="三、枚举(前缀和，差分，离散化，尺取法)"></a>三、枚举(前缀和，差分，离散化，尺取法)</h2><h5 id="1-引入题目1："><a href="#1-引入题目1：" class="headerlink" title="1.引入题目1："></a>1.引入题目1：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/数列求和问题.png" style="zoom:50%;"></h5><p>暴力解决思路：每次询问都对指定区域进行循环求和，由于查q次，每次查n个数，如果他有样例让你每次都从头查到尾，对应的最大时间复杂度为<strong>O(n*q)</strong>，我想运行超时是跑不了了。</p>
 <p>正确解题思路：运用<strong>前缀和</strong>的基础算法思路。对应的时间复杂度为<strong>O(n+p)</strong></p>
 <p>​    前缀和：定义一个sum数组，<strong>每个数组元素存放的是此前的所有元素的和</strong>，即<code>sum[i]=sum[i-1]+a[i];</code>这样如果需要求区间的和，只需要用<code>sum[ri]-sum[li-1]</code>即可。(用li-1是因为求和中要包括a[li]这一元素)。</p>
 <p>​    每次查询只需要执行一条语句一次，爱了吗。</p>
-<p><strong>2</strong>.引入题目2：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/数列修改问题.png" style="zoom:60%;"></p>
-<p>暴力解决思路：同样是枚举li到ri，为他们一个一个加上k，对应的最大时间复杂度为<strong>O(n*q)</strong>。</p>
+<h5 id="2-引入题目2："><a href="#2-引入题目2：" class="headerlink" title="2.引入题目2："></a>2.引入题目2：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/数列修改问题.png" style="zoom:50%;"></h5><p>暴力解决思路：同样是枚举li到ri，为他们一个一个加上k，对应的最大时间复杂度为<strong>O(n*q)</strong>。</p>
 <p>正确解题思路：运用<strong>差分</strong>的基础算法思路。将<code>每次要改变一个区间的值</code>改为<code>每次只改变两个端点的值</code>,对应时间复杂度为<strong>O(n+q)</strong>。</p>
 <p>​    差分：<strong>用数组delta[i]来维护第i个数与前一个数的差值</strong>，即<code>delta[li]=delta[li]+k;  delta[ri+1]=delta[ri+1]-k;</code></p>
 <p>此时虽然只改变了两个端点的值，但在所有修改完成后，再<strong>求前缀和</strong><code>a[i]=a[i-1]+delta[i]</code>，这样此时的a[i]就是所对应的每个元素的值了。(这里需要注意当i==0时，a[i]=0+delta[i])</p>
 <p>​    <strong>说到底前缀和与差分就是创建了有功能的数组，通过建立该数组与原数组的关系从而实现功能。</strong></p>
 <p>​    <strong>需要注意的是前缀和差分的操作是对称的，对差分求前缀和、对前缀和求差分 都会得到原数组。</strong></p>
-<p><strong>3</strong>.引入题目3:</p>
-<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/校门外的树.png" style="zoom:70%;">
-
-<p>a.<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/校门外的树1.png" style="zoom:60%;"></p>
+<h5 id="3-引入题目3"><a href="#3-引入题目3" class="headerlink" title="3.引入题目3:"></a><strong>3</strong>.引入题目3:<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/校门外的树.png" style="zoom:50%;"></h5><p>a.<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/校门外的树1.png" style="zoom:50%;"></p>
 <p>​    数据不大，直接每次暴力循环li到ri，将对应的数组元素赋值为0(即将树挖走)。最后再计数依旧为1的数组元素个数即可。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> L,M;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">10010</span>]=&#123;<span class="string">'\0'</span>&#125;;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;L&gt;&gt;M;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=L;i++)	a[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(M--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> l,r;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;l&gt;&gt;r;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=l;i&lt;=r;i++)</span><br><span class="line">            a[i]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=L;i++)</span><br><span class="line">        <span class="keyword">if</span>(a[i]==<span class="number">1</span>)    sum++;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;sum&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<p>b.<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/校门外的树2.png" style="zoom:60%;"></p>
+<p>b.<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/校门外的树2.png" style="zoom:50%;"></p>
 <p>​    未防止运行超时，不能暴力解了。</p>
 <p>​    此时同样是差分的思路，左端点<code>delta[li]=delta[li]-1;</code>右端点<code>delta[ri+1]=delta[ri+1]+1;</code>读完M次数据后再求前缀和<code>a[i]=delta[i]+a[i-1]</code>。</p>
 <p>​    需要注意的是，当i==0时的特例执行代码为<code>a[i]=1+delta[i];</code></p>
@@ -243,20 +238,18 @@
 
 
 
-<p>c.<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/校门外的树3.png" style="zoom:60%;"></p>
+<p>c.<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/校门外的树3.png" style="zoom:50%;"></p>
 <p>​    L来到e+9了，前面说过一般数组只能建到e+8，这就麻烦了。</p>
 <p>​    因为M的取值范围依旧没变，此时可以用到<strong>离散化</strong>的概念。</p>
 <p>​    离散化：<strong>把无限空间中有限的个体映射到有限的空间中去，以此提高算法的时空效率</strong>，此时的无限空间指的就是L，有限个体指的就是M。</p>
 <p>​    具体的实现方法：这里我还未实际操作，先空着hh。</p>
-<p><strong>4</strong>.引入题目4：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/尺取法.png" style="zoom:60%;"></p>
-<p>一般的暴力解：两条指针，挨个枚举，然后找出min输出，算法复杂度应该是O(n^2)</p>
+<h5 id="4-引入题目4："><a href="#4-引入题目4：" class="headerlink" title="4.引入题目4："></a><strong>4</strong>.引入题目4：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/尺取法.png" style="zoom:50%;"></h5><p>一般的暴力解：两条指针，挨个枚举，然后找出min输出，算法复杂度应该是O(n^2)</p>
 <p><strong>尺取法(追逐法)求解:依旧利用前缀和，然后用R-L，如果&gt;s,右指针停下，左指针右移；否则右指针继续右移</strong>。这样计算实际上就是左右指针各走一遍n数组，算法复杂度为:O(2n)即O(n)。</p>
-<p>5.引入题目5：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/灯泡灭灭灭.png" style="zoom:60%;"></p>
-<p>这题算是思路题吧，一开始看到题的时候，我是完全不知道怎么解的。</p>
+<h5 id="5-引入题目5："><a href="#5-引入题目5：" class="headerlink" title="5.引入题目5："></a>5.引入题目5：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/灯泡灭灭灭.png" style="zoom:50%;"></h5><p>这题算是思路题吧，一开始看到题的时候，我是完全不知道怎么解的。</p>
 <p>主要还是要从枚举的思路入门，首先想象有这么个表格，10行100列，先直接枚举：只操作第一列而能把第一列所有灯关了的情况，(这里可以用<strong>01串</strong>表示每行的开关灯情况)，然后枚举：只操作第二列的开关灯而能把第二列所有灯关了且保证第一列依旧全关了，第三列不改变第二列的，类推，直到最后一列时，如果最后一列是全关的，那代表第一列的开关灯情况是对的，否则则是错的，得再次循环。</p>
 <p>这里01串的实现方式要用到位运算，即直接循环十进制数字，然后运用其对应的二进制数字来表示01串，从而表示各行的开关灯情况。（这个01串会在后续的状态压缩dp等算法里再次用到）</p>
 <p>具体的实现方案：首先是我还未实际操作，其次是有点难，我估计也暂时无法实现，之后会敲着试试看的。</p>
-<h3 id="四、位运算基础"><a href="#四、位运算基础" class="headerlink" title="四、位运算基础"></a>四、位运算基础</h3><p>1.在面对<code>a*2</code>时用<code>a&lt;&lt;1</code>表示可以运行得更快，<code>a/2</code>时用<code>a&gt;&gt;1</code>更快，好吧其实用来装x也是不错的。</p>
+<h2 id="四、位运算基础"><a href="#四、位运算基础" class="headerlink" title="四、位运算基础"></a>四、位运算基础</h2><p>1.在面对<code>a*2</code>时用<code>a&lt;&lt;1</code>表示可以运行得更快，<code>a/2</code>时用<code>a&gt;&gt;1</code>更快，好吧其实用来装x也是不错的。</p>
 <p>2.<code>~</code>取反符，1变0,0变1，优先级高。（十进制数字-1取反会得到0）</p>
 <p>3.补码：其实就是取反之后再+1</p>
 <p>4.异或<code>^</code>运算：俩数不同则出1，俩数相同则出0，也可以理解为两个二进制的数字各个位分别相加，但是会把进的位吃掉(如1+1=0,满2进位，进的位被我吃了)。</p>
@@ -264,24 +257,17 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=a^b;		<span class="comment">//a'=a^b;</span></span><br><span class="line">b=a^b;		<span class="comment">//b'=a'^b=a^b^b=a;</span></span><br><span class="line">a=a^b;		<span class="comment">//a''=a'^b'=a^b^a=b;</span></span><br><span class="line"><span class="comment">//原理是：^1会取反  ^0会不变	所以^1^1会不变，^0^0也会不变，所以重复^一个数会不变</span></span><br></pre></td></tr></table></figure>
 
 <p>6.</p>
-<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/位运算基础.png" style="zoom:80%;">
+<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/位运算基础.png" style="zoom:50%;">
 
 <p>细细品。</p>
-<h3 id="五、贪心（其实就是在找规律）"><a href="#五、贪心（其实就是在找规律）" class="headerlink" title="五、贪心（其实就是在找规律）"></a>五、贪心（其实就是在找规律）</h3><p>贪心算法：对问题求解时，总是做出在当前看来是最好的选择。</p>
+<h2 id="五、贪心（其实就是在找规律）"><a href="#五、贪心（其实就是在找规律）" class="headerlink" title="五、贪心（其实就是在找规律）"></a>五、贪心（其实就是在找规律）</h2><p>贪心算法：对问题求解时，总是做出在当前看来是最好的选择。</p>
 <p>贪心算法关键在于贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。</p>
-<p><strong>1</strong>.引入题目1：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/Blog\source\_posts\算法入门一\排队接水.png" style="zoom:60%;"></p>
-<p>比较基础的题：列一下就好了,T总=(n-1)T1+(n-2)T2+(n-3)T3+..+Tn，易得接水越快的人站越前面就越好，这也符合我们的常识。</p>
-<p>2.引入题目2：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/连数问题.png" style="zoom:60%;"></p>
-<p>其实就是在找规律了，这题一开始大家会找到的规律是：按照字典序去作比较，即逐位比较大小，如ab&gt;a&gt;ba&gt;bb;但是其实是有反例的：如3，31,39    39331&gt;39313。</p>
+<h5 id="1-引入题目1：-1"><a href="#1-引入题目1：-1" class="headerlink" title="1.引入题目1："></a><strong>1</strong>.引入题目1：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/排队接水.png" style="zoom:50%;"></h5><p>比较基础的题：列一下就好了,T总=(n-1)T1+(n-2)T2+(n-3)T3+..+Tn，易得接水越快的人站越前面就越好，这也符合我们的常识。</p>
+<h5 id="2-引入题目2：-1"><a href="#2-引入题目2：-1" class="headerlink" title="2.引入题目2："></a>2.引入题目2：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/连数问题.png" style="zoom:50%;"></h5><p>其实就是在找规律了，这题一开始大家会找到的规律是：按照字典序去作比较，即逐位比较大小，如ab&gt;a&gt;ba&gt;bb;但是其实是有反例的：如3，31,39    39331&gt;39313。</p>
 <p>所以这里的主要思想是，将相同331和313直接连起来比较，然后用比较大的那个就行了。</p>
-<p>3.引入题目3：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/区间覆盖(工作安排).png" style="zoom:50%;"></p>
-<p>这里主要需要解决的是，如何选取区间：选取结束时间最早的区间。</p>
+<h5 id="3-引入题目3："><a href="#3-引入题目3：" class="headerlink" title="3.引入题目3："></a>3.引入题目3：<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/区间覆盖(工作安排).png" style="zoom:50%;"></h5><p>这里主要需要解决的是，如何选取区间：选取结束时间最早的区间。</p>
 <p>选取结束时间越早的，后续的子区间就可能更多，这就是当下最优解延伸出的全局最优解。</p>
-<p>4.引入题目4：</p>
-<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/国王游戏1.png" style="zoom:80%;">
-
-<img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/国王游戏2.png" style="zoom:80%;">
-
+<h5 id="4-引入题目4：-1"><a href="#4-引入题目4：-1" class="headerlink" title="4.引入题目4："></a>4.引入题目4：</h5><p><img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/国王游戏1.png" style="zoom:50%;">                                 <img src="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/国王游戏2.png" style="zoom:50.5%;"></p>
 <p>找最优解：</p>
 <p>1.A在B前：A：sum/RA ①     B:(sum+LA)/RB ②     2.B在A前：A：(sum+LB)/RA ③     B:sum/RB ④ </p>
 <p>现在解决子问题：_AB_比较符合要求还是_BA_比较符合要求</p>
@@ -427,7 +413,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-时间复杂度的介绍"><span class="toc-number">1.</span> <span class="toc-text">一.时间复杂度的介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-空间复杂度"><span class="toc-number">2.</span> <span class="toc-text">二.空间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、枚举-前缀和，差分，离散化，尺取法"><span class="toc-number">3.</span> <span class="toc-text">三、枚举(前缀和，差分，离散化，尺取法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、位运算基础"><span class="toc-number">4.</span> <span class="toc-text">四、位运算基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、贪心（其实就是在找规律）"><span class="toc-number">5.</span> <span class="toc-text">五、贪心（其实就是在找规律）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、总结"><span class="toc-number"></span> <span class="toc-text">六、总结</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-时间复杂度的介绍"><span class="toc-number">1.</span> <span class="toc-text">一.时间复杂度的介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-空间复杂度"><span class="toc-number">2.</span> <span class="toc-text">二.空间复杂度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、枚举-前缀和，差分，离散化，尺取法"><span class="toc-number">3.</span> <span class="toc-text">三、枚举(前缀和，差分，离散化，尺取法)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-引入题目1："><span class="toc-number">3.0.0.1.</span> <span class="toc-text">1.引入题目1：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-引入题目2："><span class="toc-number">3.0.0.2.</span> <span class="toc-text">2.引入题目2：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-引入题目3"><span class="toc-number">3.0.0.3.</span> <span class="toc-text">3.引入题目3:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-引入题目4："><span class="toc-number">3.0.0.4.</span> <span class="toc-text">4.引入题目4：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-引入题目5："><span class="toc-number">3.0.0.5.</span> <span class="toc-text">5.引入题目5：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、位运算基础"><span class="toc-number">4.</span> <span class="toc-text">四、位运算基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、贪心（其实就是在找规律）"><span class="toc-number">5.</span> <span class="toc-text">五、贪心（其实就是在找规律）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-引入题目1：-1"><span class="toc-number">5.0.0.1.</span> <span class="toc-text">1.引入题目1：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-引入题目2：-1"><span class="toc-number">5.0.0.2.</span> <span class="toc-text">2.引入题目2：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-引入题目3："><span class="toc-number">5.0.0.3.</span> <span class="toc-text">3.引入题目3：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-引入题目4：-1"><span class="toc-number">5.0.0.4.</span> <span class="toc-text">4.引入题目4：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、总结"><span class="toc-number">6.</span> <span class="toc-text">六、总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
