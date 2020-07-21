@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>7-37 螺旋方阵 (20分) | 某黑的个人博客</title>
+  <title>Archives: 2020/7 | 某黑的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目">
-<meta property="og:type" content="article">
-<meta property="og:title" content="7-37 螺旋方阵 (20分)">
-<meta property="og:url" content="http://yoursite.com/2020/02/08/%E8%9E%BA%E6%97%8B%E6%96%B9%E9%98%B5/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="某黑的个人博客">
+<meta property="og:url" content="http://yoursite.com/archives/2020/07/index.html">
 <meta property="og:site_name" content="某黑的个人博客">
-<meta property="og:description" content="题目">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/02/08/%E8%9E%BA%E6%97%8B%E6%96%B9%E9%98%B5/1.png">
-<meta property="article:published_time" content="2020-02-08T08:52:16.000Z">
-<meta property="article:modified_time" content="2020-07-12T12:22:09.736Z">
 <meta property="article:author" content="长青">
-<meta property="article:tag" content="编程题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/02/08/%E8%9E%BA%E6%97%8B%E6%96%B9%E9%98%B5/1.png">
   
     <link rel="alternative" href="/atom.xml" title="某黑的个人博客" type="application/atom+xml">
   
@@ -157,208 +150,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-螺旋方阵" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      7-37 螺旋方阵 (20分)
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/" class="archive-article-date">
+  	<time datetime="2020-07-13T01:22:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/">算法入门三</a>
     </h1>
   
 
-        
-        
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2020/02/08/%E8%9E%BA%E6%97%8B%E6%96%B9%E9%98%B5/" class="archive-article-date">
-  	<time datetime="2020-02-08T08:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><img src="/2020/02/08/%E8%9E%BA%E6%97%8B%E6%96%B9%E9%98%B5/1.png" alt></p>
-<a id="more"></a>
-
-<h3 id="找规律"><a href="#找规律" class="headerlink" title="找规律"></a>找规律</h3><p>以走一圈为单位：</p>
-<p><strong>①</strong>. 1列<del>n列，2行</del>n行，n-1列<del>1列，n-1行</del>2行。(<code>begin~end</code>,<code>begin+1~end</code>,<code>end-1~begin</code>,<code>end-1~begin+1</code>)</p>
-<p><strong>②</strong>. 开头改为2列，结束改为n-1列，规律不变，类推。</p>
-<h3 id="代码区"><a href="#代码区" class="headerlink" title="代码区"></a>代码区</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">deal</span><span class="params">(<span class="keyword">int</span> arr[][<span class="number">20</span>],<span class="keyword">int</span> n)</span><span class="comment">//二维数组传参需要给定一维的长度，否则报错</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num=<span class="number">0</span>;<span class="comment">//计数（自增） </span></span><br><span class="line">	<span class="keyword">int</span> i,j,<span class="built_in">begin</span>,<span class="built_in">end</span>;<span class="comment">//循环用量与边界量 </span></span><br><span class="line">	<span class="keyword">int</span> limit;<span class="comment">//退出循环的判断条件</span></span><br><span class="line">	<span class="built_in">begin</span>=<span class="number">1</span>;<span class="built_in">end</span>=n;<span class="comment">//表示n阶方阵</span></span><br><span class="line">	<span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)	limit=n*n;<span class="comment">//偶数退出条件：如4*4的退出条件是16</span></span><br><span class="line">	<span class="keyword">else</span> 	limit=n*n<span class="number">-1</span>;<span class="comment">//奇数退出条件：如5*5的退出条件是24 </span></span><br><span class="line">	<span class="keyword">while</span>(num!=limit)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="built_in">begin</span>,j=<span class="built_in">begin</span>;j&lt;=<span class="built_in">end</span>;j++)	arr[i][j]=(++num);<span class="comment">//右移 </span></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="built_in">begin</span>+<span class="number">1</span>,j=<span class="built_in">end</span>;i&lt;=<span class="built_in">end</span>;i++)	arr[i][j]=(++num);<span class="comment">//下移 </span></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="built_in">end</span>,j=<span class="built_in">end</span><span class="number">-1</span>;j&gt;=<span class="built_in">begin</span>;j--)	arr[i][j]=(++num);<span class="comment">//左移 </span></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="built_in">end</span><span class="number">-1</span>,j=<span class="built_in">begin</span>;i&gt;=<span class="built_in">begin</span>+<span class="number">1</span>;i--)	arr[i][j]=(++num);<span class="comment">//上移 </span></span><br><span class="line">		<span class="built_in">begin</span>++;<span class="built_in">end</span>--;<span class="comment">//换行 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(n%<span class="number">2</span>!=<span class="number">0</span>)	arr[n/<span class="number">2</span>+<span class="number">1</span>][n/<span class="number">2</span>+<span class="number">1</span>]=(++num);<span class="comment">//奇数的方阵要补正中央元素的值 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> arr[<span class="number">20</span>][<span class="number">20</span>],n;<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	deal(arr,n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="comment">//输出方阵</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%3d"</span>,arr[i][j]);</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>规律和方法其实很多，还是每个人有其不同的解法吧。</strong></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>别...别客气<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编程题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/08/%E8%9E%BA%E6%97%8B%E6%96%B9%E9%98%B5/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/02/08/DFS%E5%85%A5%E9%97%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          DFS入门
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/02/08/%E6%9C%89%E7%90%86%E6%95%B0%E5%9D%87%E5%80%BC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">7-31 有理数均值 (20分)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#找规律"><span class="toc-number">2.</span> <span class="toc-text">找规律</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码区"><span class="toc-number">3.</span> <span class="toc-text">代码区</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -382,8 +228,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

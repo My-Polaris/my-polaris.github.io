@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/26/%E7%AE%97%E5%85%A5%E5%85%A5%E9%97%A8%E4%BA%8C/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86.png">
 <meta property="og:image" content="http://yoursite.com/2020/05/26/%E7%AE%97%E5%85%A5%E5%85%A5%E9%97%A8%E4%BA%8C/STL%E5%AE%B9%E5%99%A8.png">
 <meta property="article:published_time" content="2020-05-26T14:27:11.000Z">
-<meta property="article:modified_time" content="2020-07-12T13:09:14.906Z">
+<meta property="article:modified_time" content="2020-07-13T04:56:03.243Z">
 <meta property="article:author" content="长青">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -200,7 +200,7 @@
 <img src="/2020/05/26/%E7%AE%97%E5%85%A5%E5%85%A5%E9%97%A8%E4%BA%8C/二叉树的遍历.png" alt="二叉树的遍历" style="zoom:60%;">
 
 <p>​    3.巩固(如上图)：先序:ABDGHCEIFJ。中序:GDHBAEICJF。后序:GHDBIEJFCA。</p>
-<h5 id="例1：知两序求一序："><a href="#例1：知两序求一序：" class="headerlink" title="例1：知两序求一序："></a>例1：知两序求一序：</h5><p><strong>题目：已知前序中序求后序                    Eg:前:ABCDFE 中:BADFCE</strong></p>
+<h6 id="例1：知两序求一序："><a href="#例1：知两序求一序：" class="headerlink" title="例1：知两序求一序："></a>例1：知两序求一序：</h6><p><strong>题目：已知前序中序求后序                    Eg:前:ABCDFE 中:BADFCE</strong></p>
 <p>核心：运用二叉树排序的性质(<strong>先序排序的第一个为是根，后序排序的最后一个为根</strong>)与递归。</p>
 <p>注意：给出前序和后序并不能确保有唯一中序。</p>
 <p>解题思路：设计递归函数deal(ql,qr,zl,zr)，其功能是通过前序字符在中序字符找到根。</p>
@@ -339,6 +339,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          算法入门三
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/05/19/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">算法入门一</div>
@@ -368,7 +377,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、树结构基础"><span class="toc-number">1.</span> <span class="toc-text">一、树结构基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#二叉树的四种遍历："><span class="toc-number">1.0.0.1.</span> <span class="toc-text">二叉树的四种遍历：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#例1：知两序求一序："><span class="toc-number">1.0.0.2.</span> <span class="toc-text">例1：知两序求一序：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、排序补充"><span class="toc-number">2.</span> <span class="toc-text">二、排序补充</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#桶排序之基数排序-面向桶太大的解决办法-："><span class="toc-number">2.0.0.1.</span> <span class="toc-text">桶排序之基数排序(面向桶太大的解决办法)：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#归并排序：将序列一分为二，再对子序列进行排序，最后将俩子序列合并。-递归思路"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">归并排序：将序列一分为二，再对子序列进行排序，最后将俩子序列合并。(递归思路)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#快速排序：选取一个基准数，将小于基准数的放前头，大于的放后头。-递归思路"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">快速排序：选取一个基准数，将小于基准数的放前头，大于的放后头。(递归思路)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#c-的sort函数"><span class="toc-number">2.0.0.4.</span> <span class="toc-text">c++的sort函数</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、STL容器"><span class="toc-number">3.</span> <span class="toc-text">三、STL容器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Vector容器使用样例1：大数乘法与除法。"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">Vector容器使用样例1：大数乘法与除法。</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、总结"><span class="toc-number">4.</span> <span class="toc-text">四、总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、树结构基础"><span class="toc-number">1.</span> <span class="toc-text">一、树结构基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#二叉树的四种遍历："><span class="toc-number">1.0.0.1.</span> <span class="toc-text">二叉树的四种遍历：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#例1：知两序求一序："><span class="toc-number">1.0.0.1.1.</span> <span class="toc-text">例1：知两序求一序：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、排序补充"><span class="toc-number">2.</span> <span class="toc-text">二、排序补充</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#桶排序之基数排序-面向桶太大的解决办法-："><span class="toc-number">2.0.0.1.</span> <span class="toc-text">桶排序之基数排序(面向桶太大的解决办法)：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#归并排序：将序列一分为二，再对子序列进行排序，最后将俩子序列合并。-递归思路"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">归并排序：将序列一分为二，再对子序列进行排序，最后将俩子序列合并。(递归思路)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#快速排序：选取一个基准数，将小于基准数的放前头，大于的放后头。-递归思路"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">快速排序：选取一个基准数，将小于基准数的放前头，大于的放后头。(递归思路)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#c-的sort函数"><span class="toc-number">2.0.0.4.</span> <span class="toc-text">c++的sort函数</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、STL容器"><span class="toc-number">3.</span> <span class="toc-text">三、STL容器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Vector容器使用样例1：大数乘法与除法。"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">Vector容器使用样例1：大数乘法与除法。</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、总结"><span class="toc-number">4.</span> <span class="toc-text">四、总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -498,11 +507,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color4">编程题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编程题</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
