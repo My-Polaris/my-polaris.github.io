@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Robocom世界机器人开发者大赛参赛总结 | 某黑的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一些的个人总结">
+  <meta name="description" content="一些个人的总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Robocom世界机器人开发者大赛参赛总结">
 <meta property="og:url" content="http://yoursite.com/2020/11/24/Robocom%E4%B8%96%E7%95%8C%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%A4%A7%E8%B5%9B%E5%8F%82%E8%B5%9B%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="某黑的个人博客">
-<meta property="og:description" content="一些的个人总结">
+<meta property="og:description" content="一些个人的总结">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/11/24/Robocom%E4%B8%96%E7%95%8C%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%A4%A7%E8%B5%9B%E5%8F%82%E8%B5%9B%E6%80%BB%E7%BB%93/spark%E6%9C%BA%E5%99%A8%E4%BA%BA.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/11/24/Robocom%E4%B8%96%E7%95%8C%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%A4%A7%E8%B5%9B%E5%8F%82%E8%B5%9B%E6%80%BB%E7%BB%93/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90.png">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/11/24/Robocom%E4%B8%96%E7%95%8C%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%A4%A7%E8%B5%9B%E5%8F%82%E8%B5%9B%E6%80%BB%E7%BB%93/SSH%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
 <meta property="og:image" content="http://yoursite.com/2020/11/24/Robocom%E4%B8%96%E7%95%8C%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%A4%A7%E8%B5%9B%E5%8F%82%E8%B5%9B%E6%80%BB%E7%BB%93/SSH%20%E5%85%8D%E5%AF%86%E7%A0%81%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
 <meta property="article:published_time" content="2020-11-24T05:08:20.000Z">
-<meta property="article:modified_time" content="2021-02-05T19:34:53.457Z">
+<meta property="article:modified_time" content="2021-02-06T03:45:28.960Z">
 <meta property="article:author" content="长青">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -193,7 +193,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>一些的个人总结</strong></p>
+        <p><strong>一些个人的总结</strong></p>
 <a id="more"></a>
 
 <h2 id="一、-机器人分析"><a href="#一、-机器人分析" class="headerlink" title="一、 机器人分析"></a>一、 机器人分析</h2><h3 id="1-机器人介绍"><a href="#1-机器人介绍" class="headerlink" title="1.机器人介绍"></a>1.机器人介绍</h3><img src="/2020/11/24/Robocom%E4%B8%96%E7%95%8C%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%A4%A7%E8%B5%9B%E5%8F%82%E8%B5%9B%E6%80%BB%E7%BB%93/spark机器人.jpg" alt="spark机器人" style="zoom:67%;">
@@ -219,7 +219,7 @@
 <p>​    user是spark，即用户名；remote即ip地址。</p>
 <p>缺点：只能通过终端查看机器人的Linux系统信息。</p>
 <p>​    <strong>*方法2：</strong>采用远程连接软件，如：<strong>VNC Viewer</strong>，Tight VNC</p>
-<p>直观的直接连到机器人内部的Ubuntu，所以第一种办法可以忽略了</p>
+<p>可以直观的看到机器人内部的Ubuntu，所以第一种办法可以忽略了</p>
 <h2 id="二、-初始spark代码分析"><a href="#二、-初始spark代码分析" class="headerlink" title="二、  初始spark代码分析"></a>二、  初始spark代码分析</h2><h3 id="1-知识点"><a href="#1-知识点" class="headerlink" title="1. 知识点"></a>1. 知识点</h3><h4 id="a-ROS基础入门知识点"><a href="#a-ROS基础入门知识点" class="headerlink" title="a)    ROS基础入门知识点"></a>a)    ROS基础入门知识点</h4><p>​    1.从turtlesim(小海龟仿真结点)理解ros的基本通信机制：topic(异步通信机制)    service(同步通信机制)</p>
 <p>​    2.异步通信机制：发布者(Publisher)发消息，订阅者(Subscriber)接受消息(msg)。</p>
 <p>​    3.同步通信机制：服务端(Service)发布服务需求，客户端(Client)接受需求做出反应并给出回馈((respond))。</p>
@@ -257,14 +257,14 @@
 <p>​            ①   rospy.sleep(1)进入死循环1s</p>
 <p>​            ②   rate=rospy.Rate(10)，设置频率为10HZ，即0.1s，再rate.sleep()</p>
 <h4 id="e-Linux基础"><a href="#e-Linux基础" class="headerlink" title="e)    Linux基础"></a>e)    Linux基础</h4><p>​    Unix一开始存在的意义：为了让同一台主机给更多的用户使用。</p>
-<p>​    为什么用C语言写： 美国贝尔实验室的 <strong>Ken Thompson</strong>用B语言写出了第一个Unix，但<strong>BCPL</strong> 语言的移植性太差，所以<strong>Dennis M.Ritchie</strong>为此设计了C语言。</p>
+<p>​    延伸出C语言的来源： 美国贝尔实验室的 <strong>Ken Thompson</strong>用B语言写出了第一个Unix，但<strong>BCPL</strong> 语言的移植性太差，所以<strong>Dennis M.Ritchie</strong>为此设计了C语言。</p>
 <img src="/2020/11/24/Robocom%E4%B8%96%E7%95%8C%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E8%80%85%E5%A4%A7%E8%B5%9B%E5%8F%82%E8%B5%9B%E6%80%BB%E7%BB%93/计算机组成.png" style="zoom:72%;">
 
 <p><strong>Linux内核</strong>：即终端命令与系统调用的封装。</p>
 <p><strong>Linux发行版</strong>：如Ubuntu，更多的是图形化的界面以及各种应用程序的提供。</p>
 <p><strong>Windows</strong>和<strong>Linux</strong>的差别：</p>
 <p><strong>设计初衷差异：</strong></p>
-<p>Windows更多的偏向单用户操作系统，即个人电脑。(当然也可以提供多用户操作)</p>
+<p>Windows更多的偏向单用户操作系统，即个人电脑。(当然现在也可以提供多用户操作了)</p>
 <p>Linux是多用户操作系统，易开发，因此更偏向于服务器与嵌入式的应用。</p>
 <p><strong>文件系统差异：</strong></p>
 <p>Windows采用驱动器盘符，每个驱动器都有自己的根目录结构，这样形成了多个树并列的情形。</p>
@@ -438,7 +438,7 @@
 <p>若接受到抓取成功信息(’1’)后，调用grasp_status_cp函数回到起始点并放下物体。</p>
 <p><strong>move</strong>函数实现：让move_base服务器发送目标点，服务器自动规划路线(采用ROS的gmaping规划路线算法)(全局规划与本地规划都由其他配置文件写出)，若超时未到达会取消目标。move_base服务器内部的许多函数都是其他配置文件配置好的，函数还蛮多的，由底层一层层封装上来的，这里我没有细究。</p>
 <p><strong>grasp_status_cp</strong>函数实现：与move类似，自动规划路线到起始点(0,0,0,0)，差别在于没有时间限制，因此也没有cancel_goal()</p>
-<h2 id="三、-整合功能需求"><a href="#三、-整合功能需求" class="headerlink" title="三、 整合功能需求"></a>三、 整合功能需求</h2><h3 id="按实现的时间顺序列写需求"><a href="#按实现的时间顺序列写需求" class="headerlink" title="按实现的时间顺序列写需求"></a>按实现的时间顺序列写需求</h3><h6 id="1-建立github项目-私仓"><a href="#1-建立github项目-私仓" class="headerlink" title="1. 建立github项目(私仓)"></a>1. 建立github项目(私仓)</h6><p>代码常改动，备份麻烦而且机器人未开机时无法查看代码，git很好的解决了这个问题。</p>
+<h2 id="三、-整合功能需求"><a href="#三、-整合功能需求" class="headerlink" title="三、 整合功能需求"></a>三、 整合功能需求</h2><h3 id="按实现的时间顺序列写需求"><a href="#按实现的时间顺序列写需求" class="headerlink" title="按实现的时间顺序列写需求"></a>按实现的时间顺序列写需求</h3><h6 id="1-建立github项目-私仓"><a href="#1-建立github项目-私仓" class="headerlink" title="1. 建立github项目(私仓)"></a>1. 建立github项目(私仓)</h6><p>代码常改动，备份麻烦而且机器人未开机时无法查看代码，git与github很好的解决了这个问题。</p>
 <p>仓库地址：<a href="https://github.com/My-Polaris/spark-259e" target="_blank" rel="noopener">https://github.com/My-Polaris/spark-259e</a></p>
 <p><strong>关键的git命令：</strong></p>
 <p>git diff 查看版本库与工作区的不同</p>
@@ -452,7 +452,7 @@
 <h6 id="5-机械臂抓取的速度"><a href="#5-机械臂抓取的速度" class="headerlink" title="5. 机械臂抓取的速度"></a>5. 机械臂抓取的速度</h6><p>机械臂配置源代码路径：src/spark_driver/arm/uArm/swiftpro/src/swiftpro_write_node.cpp</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">配置文件是用C++写的，将机械臂移动速度的数值由<span class="number">4</span>个<span class="number">0</span>改为<span class="number">5</span>个<span class="number">0</span></span><br><span class="line"><span class="comment">//Gcode = (std::string)"G0 X" + x + " Y" + y + " Z" + z + " F10000" + "\r\n";	</span></span><br><span class="line">Gcode = (<span class="built_in">std</span>::<span class="built_in">string</span>)<span class="string">"G0 X"</span> + x + <span class="string">" Y"</span> + y + <span class="string">" Z"</span> + z + <span class="string">" F100000"</span> + <span class="string">"\r\n"</span>;</span><br></pre></td></tr></table></figure>
 
-<h6 id="6-机械臂复位功能"><a href="#6-机械臂复位功能" class="headerlink" title="6. 机械臂复位功能"></a>6. 机械臂复位功能</h6><p>机械臂强制移动时抓取会有偏差，同时对抗中机械臂是容易发生碰撞的，因此需要复位功能。</p>
+<h6 id="6-机械臂复位功能"><a href="#6-机械臂复位功能" class="headerlink" title="6. 机械臂复位功能"></a>6. 机械臂复位功能</h6><p>机械臂被强制移位时抓取会有偏差，同时在对抗中机械臂是很容易发生碰撞的，因此需要复位功能。</p>
 <p>用源代码里的position()移动到初始位置并不可行，因为机械臂被撞了之后已经失去了机械臂的位置信息，所以必须重启机械臂才能进行复位。</p>
 <p>查阅机械臂<a href="https://github.com/uArm-Developer/RosForSwiftAndSwiftPro" target="_blank" rel="noopener">uArm Swift文档</a>找到控制机械臂状态的话题。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 机械臂复位</span></span><br><span class="line">	声明SwiftProStatus这个类，发布重置机械臂状态的命令</span><br><span class="line">    <span class="keyword">if</span> msg.data==<span class="string">'3'</span>:</span><br><span class="line">        <span class="comment"># 机械臂恢复</span></span><br><span class="line">        status = SwiftProStatus()</span><br><span class="line">        status_pub = rospy.Publisher(<span class="string">'/swiftpro_status_topic'</span>,SwiftProStatus,queue_size=<span class="number">1</span>)</span><br><span class="line">        rate = rospy.Rate(<span class="number">5</span>)</span><br><span class="line">        status.status = <span class="number">0</span>	<span class="comment">#关闭对机械臂的控制</span></span><br><span class="line">        status_pub.publish(status)</span><br><span class="line">        rate.sleep()</span><br><span class="line">        status.status = <span class="number">1</span>	<span class="comment">#开启对机械臂的控制</span></span><br><span class="line">        status_pub.publish(status)</span><br><span class="line">        rate.sleep()</span><br><span class="line">        pos = position()</span><br><span class="line">        pos.x = <span class="number">120</span></span><br><span class="line">        pos.y = <span class="number">0</span></span><br><span class="line">        pos.z = <span class="number">35</span></span><br><span class="line">        <span class="comment">#发布停止气泵的命令，让重置机器臂的同时关闭气泵</span></span><br><span class="line">        self.pub2.publish(<span class="number">0</span>)</span><br><span class="line">        self.pub1.publish(pos)</span><br></pre></td></tr></table></figure>
@@ -466,7 +466,7 @@
 
 
 
-<h6 id="8-摄像头图像处理修改"><a href="#8-摄像头图像处理修改" class="headerlink" title="8. 摄像头图像处理修改"></a>8. 摄像头图像处理修改</h6><p><strong>信息实时显示</strong>：物块的坐标信息，识别物块的轮廓，计算出来的点与机械臂距离信息，同时判别抓取点能否抓取（红色点是即将抓取的点，蓝色点为识别到但不抓取或距离过远的点）。</p>
+<h6 id="8-摄像头图像处理修改"><a href="#8-摄像头图像处理修改" class="headerlink" title="8. 摄像头图像处理修改"></a>8. 摄像头图像处理修改</h6><p><strong>信息实时显示</strong>：物块的坐标信息，识别物块的轮廓，计算出来的点与机械臂距离信息。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#数字信息显示</span></span><br><span class="line">    str_x = <span class="string">"x_mid: "</span>+str(int(x_mid)) <span class="comment">#物块的点的x坐标</span></span><br><span class="line">    str_y = <span class="string">"y_mid: "</span>+str(int(y_mid)) <span class="comment">#物块的点的y坐标</span></span><br><span class="line">    str_A = <span class="string">"Area: "</span>+str(int(w*h)) <span class="comment">#物块的面积</span></span><br><span class="line">    str_D = <span class="string">"dist: "</span>+str(int(math.sqrt((<span class="number">340</span> - x_mid) ** <span class="number">2</span> + (<span class="number">235</span> - y_mid) ** <span class="number">2</span>))) <span class="comment">#物块到点(340,235)的距离</span></span><br><span class="line"><span class="comment">#物块轮廓画图                    </span></span><br><span class="line">    frame = cv2.drawContours(frame,[contours[i]],<span class="number">0</span>,(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">3</span>)</span><br><span class="line">    frame = cv2.putText(frame,str_x, (int(x_mid),int(y_mid)), cv2.FONT_HERSHEY_COMPLEX, <span class="number">0.3</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), <span class="number">1</span>)</span><br><span class="line">    frame = cv2.putText(frame,str_y, (int(x_mid),int(y_mid)+<span class="number">10</span>), cv2.FONT_HERSHEY_COMPLEX,<span class="number">0.3</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), <span class="number">1</span>)</span><br><span class="line">    frame = cv2.putText(frame,str_A, (int(x_mid),int(y_mid)+<span class="number">20</span>), cv2.FONT_HERSHEY_COMPLEX, <span class="number">0.3</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), <span class="number">1</span>)</span><br><span class="line">    frame = cv2.putText(frame,str_D, (int(x_mid),int(y_mid)+<span class="number">30</span>), cv2.FONT_HERSHEY_COMPLEX, <span class="number">0.3</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
 <p><strong>图像识别的修改：</strong></p>
@@ -477,6 +477,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 所有点到spark的距离</span></span><br><span class="line">  	distance_list.append(math.sqrt((<span class="number">340</span> - x_mid) ** <span class="number">2</span> + (<span class="number">235</span> - y_mid) ** <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
 
 <p>这里的340与235分别对应机械臂红标在屏幕中的x,y坐标信息，这个时候前面的信息实时显示就派上用场啦<br>如果机械臂红标在摄像头中对应的值是355,245，那这个值也要更换为355,245。</p>
+<p>3.判别抓取点能否抓取（红色点是即将抓取的点，蓝色点为识别到但不抓取或距离过远的点）。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将目标点显示出来，红色的点，其余识别到但不抓取的点是蓝色的</span></span><br><span class="line"><span class="keyword">if</span> found_count &gt;= <span class="number">15</span> <span class="keyword">and</span> min_distance &lt; <span class="number">350</span>:</span><br><span class="line">	cv2.circle(frame, (np.int32(xc), np.int32(yc)), <span class="number">4</span>, (<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>), <span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这里的350也是要可以变化的，得确保抓的点机械臂是能够得到的</p>
@@ -498,8 +499,9 @@
 <h6 id="13-自定义路径规划"><a href="#13-自定义路径规划" class="headerlink" title="13. 自定义路径规划"></a>13. 自定义路径规划</h6><p>建立新的点击订阅者，手敲自定义的moveTo，不用move_base服务器配置的动态规划路线(避障)，点哪去哪。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move_2</span><span class="params">(self,msg)</span>:</span></span><br><span class="line">    <span class="comment">#获取初始位置</span></span><br><span class="line">    <span class="comment"># self.initial_pose = PoseWithCovarianceStamped()    </span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">"hahhaha"</span></span><br><span class="line">        <span class="comment">#print dest</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            dest = msg </span><br><span class="line">            pose = self.tf.get_pose(<span class="string">"map"</span>, <span class="string">"base_link"</span>)</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"hahah"</span></span><br><span class="line">            <span class="keyword">print</span> pose </span><br><span class="line">            yaw = self.tf.yawBetweenPoseAndPoint(pose, dest.point)</span><br><span class="line"></span><br><span class="line">            delta_x = dest.point.x - pose.position.x</span><br><span class="line">            delta_y = dest.point.y - pose.position.y</span><br><span class="line">            distance = math.sqrt(delta_x ** <span class="number">2</span> + delta_y ** <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> distance &lt; <span class="number">0.05</span>:</span><br><span class="line">                self.move_1(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">elif</span> distance &lt; <span class="number">0.3</span>:</span><br><span class="line">                <span class="keyword">if</span> abs(yaw) &lt; self.tf.angel2Radian(<span class="number">90</span>):</span><br><span class="line">                    speed = -yaw * <span class="number">1</span></span><br><span class="line">                    <span class="keyword">if</span> speed &gt; <span class="number">1</span>:</span><br><span class="line">                        speed = <span class="number">1</span></span><br><span class="line">                    self.move_1(<span class="number">0.1</span>, speed)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    speed = -self.tf.standardRadian(yaw - pi) * <span class="number">10</span></span><br><span class="line">                    <span class="keyword">if</span> speed &gt; <span class="number">1</span>:</span><br><span class="line">                        speed = <span class="number">1</span></span><br><span class="line">                    self.move_1(<span class="number">-0.1</span>, speed)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> abs(yaw) &lt; self.tf.angel2Radian(<span class="number">60</span>):</span><br><span class="line">                    speed = -yaw * <span class="number">10</span></span><br><span class="line">                    <span class="keyword">if</span> speed &gt; <span class="number">2</span>:</span><br><span class="line">                        speed = <span class="number">2</span></span><br><span class="line">                    self.move_1(<span class="number">0.4</span>, speed)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> yaw &lt; <span class="number">0</span>:</span><br><span class="line">                        self.move_1(<span class="number">0</span>, <span class="number">1.5</span>)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        self.move_1(<span class="number">0</span>, <span class="number">-1.5</span>)</span><br></pre></td></tr></table></figure>
 
-<p>move_2在点击事件2中触发，具体实现是直接往定义的点移动，在接近点时减慢速度并微调角度一边以便摄像头识别到物块。</p>
-<p>具体的TF移动代码封装在了TF.py里，创建Rviz页面的点击事件2在src/3rd_app/move2grasp/rviz/spark_gmapping.rviz里写。</p>
+<p>move_2在点击事件2中触发，具体实现是直接往定义的点移动，在接近点时减慢速度并微调角度以便摄像头识别到物块。</p>
+<p>具体的TF移动代码封装在了TF.py里。</p>
+<p>在src/3rd_app/move2grasp/rviz/spark_gmapping.rviz里创建Rviz页面的点击事件2。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- Class: rviz&#x2F;PublishPoint</span><br><span class="line">  Single click: true</span><br><span class="line">  Topic: &#x2F;clicked_point_2</span><br></pre></td></tr></table></figure>
 
 <h6 id="14-歪脖子抓取与自动堆叠物块"><a href="#14-歪脖子抓取与自动堆叠物块" class="headerlink" title="14. 歪脖子抓取与自动堆叠物块"></a>14. 歪脖子抓取与自动堆叠物块</h6><p>自动堆叠物块的实现思路：与抓取同理，只不过将抓取与开启气泵换为关闭气泵。</p>
@@ -507,16 +509,16 @@
 <p>这里要注意的是要写多一个判别语句，当画面中找不到物块时将物块放在正前方，当找到物块时就放在这个物块的上方。</p>
 <h2 id="四、-最终代码实现及相关注释"><a href="#四、-最终代码实现及相关注释" class="headerlink" title="四、  最终代码实现及相关注释"></a>四、  最终代码实现及相关注释</h2><p>​    见github项目：<a href="https://github.com/My-Polaris/spark-259e/tree/master/src" target="_blank" rel="noopener">https://github.com/My-Polaris/spark-259e/tree/master/src</a></p>
 <h2 id="五、-比赛日记与参赛总结"><a href="#五、-比赛日记与参赛总结" class="headerlink" title="五、  比赛日记与参赛总结"></a>五、  比赛日记与参赛总结</h2><h3 id="1-深圳初赛"><a href="#1-深圳初赛" class="headerlink" title="1.深圳初赛"></a>1.深圳初赛</h3><p>​    第一天的半自动赛让我了解到，还是少不了大心脏的(虽然不是我操控哈哈)。</p>
-<p>​    同时，赛制也十分重要，不过这次的赛制很乱，赛制文件上都没有的东西赛制老师却说有。</p>
-<p>​    不得不夸南科大是真的聪明，想到用这种方式扫物块，增大底盘扫物块的面积。</p>
-<h3 id="2-杭州决赛"><a href="#2-杭州决赛" class="headerlink" title="2.杭州决赛"></a>2.杭州决赛</h3><h6 id="半自动对抗赛："><a href="#半自动对抗赛：" class="headerlink" title="半自动对抗赛："></a><strong>半自动对抗赛</strong>：</h6><p>​    差点玩拖，忽略了强度分，不过还好进了决赛。一个月的准备时间，哈工大和南科大都准备的挺充分的。之后凭借我们操作手的操作熟练度，打赢南科大，拿下了冠军。</p>
+<p>​    同时，赛制也十分重要，搞清楚赛制才是拿下胜利的前提。</p>
+<h3 id="2-杭州决赛"><a href="#2-杭州决赛" class="headerlink" title="2.杭州决赛"></a>2.杭州决赛</h3><h6 id="半自动对抗赛："><a href="#半自动对抗赛：" class="headerlink" title="半自动对抗赛："></a><strong>半自动对抗赛</strong>：</h6><p>​    差点玩拖，忽略了强度分，不过还好进了决赛。一个月的准备时间，哈工大和南科大都准备的挺充分的。</p>
+<p>​    最后我们拿下冠军的过程真的很惊险。</p>
 <h6 id="自动对抗赛："><a href="#自动对抗赛：" class="headerlink" title="自动对抗赛："></a><strong>自动对抗赛</strong>：</h6><p>​    手气真的差，积分赛遇上最强的三支队。尽管如此，在比赛的前一天我们把无避障的MoveTo搞定了，正常发挥的话赢面还是有的。</p>
-<p>​    第一场比赛打友队，在赛场上调试之后，想要背水一战，需求14写了出来，但未完全成功。上赛场时还没调试完全，这时物块标定与摄像头位置都出现了差错，急急忙忙将备份代码调了出来，<strong>再校准摄像头</strong>，最终在不确定能不能抓到物块的前提下开始了比赛，然后失利了。</p>
+<p>​    第一场比赛，在赛场上调试之后，想要背水一战，需求14写了出来，但未完全成功。上赛场时还没调试完全，这时物块标定与摄像头位置都出现了差错，急急忙忙将备份代码调了出来，<strong>再校准摄像头</strong>，最终在不确定能不能抓到物块的前提下开始了比赛，然后失利了。</p>
 <p>​    第二场比赛打南科大，这次学乖了，放弃需求14，可在比赛开始前又出问题了，机器人热点突然连不上，连了好久都没连上，直到比赛开始我们还在连wifi，差不多比赛开始一分钟后才终于连上机器人，<strong>可这时才发现摄像头又松了</strong>，于是就全程抓不到东西，这场比赛打的我们士气低落，突然出现的问题与突然松开的摄像头都给我们痛击。</p>
 <p>​    第三场比赛打哈工B，这场我们将摄像头校准后才上场，可<strong>抓了两个物块后摄像头又不准了</strong>，以至于后面都抓不到物块，还是小瞧了他们，他们推方块很猛，第三场还是败下阵来。</p>
 <p>​    直到三场比赛打完，我们才发现总抓不到物块的原因，我们的摄像头的螺丝太松了，松到机器人移动几下摄像头就偏位，在第二场比赛结束时我们发现摄像头甚至是对着机器人自己的，画面中连地面都看不到。如果是正常打但输了倒是没关系，但是是因为各种奇怪的原因以及这个最致命的摄像头，所以这次是真的很可惜。</p>
 <p>​    不过我还是要夸南科大，他们是真的挺有想法的，建一个全新的RVIZ界面，将测得的地图数据模拟上去，就等于自建地图了，而且实时位置也能显示，这就相当于自己将重写了move_base服务器，同时他们的界面也很nb，左键实时移动到指定地点(无路径规划，即TF直接实现)，这个实时移动就相当于每0.1s有一次路径规划，几乎等于没有，右键可以实现实时转动到指定方向，抓取也有相应的点击事件，在其他队伍提起申述之前他们还有一个功能菜单，可惜没见识到了。</p>
-<p>​    而对比我们，启发就是我们没看重建立静态地图，同时对于比赛的策略也不够灵活。</p>
+<p>​    而对比我们，启发就是我们不够重视建立静态地图，同时对于比赛的策略也不够灵活。</p>
 <p><strong>总的来说这次参赛所学到的东西还蛮多的，一步步走来也多少有坎坷，竞赛所带来的提升是全方面的，得到的提升不仅仅是编码能力，还有解决问题的能力、检索信息的能力，团队协作的能力，临场应对的能力等等，许多东西都是课本上学不到的，一场比赛能获得什么其实不仅在于比赛本身，更在于自身如何去准备，如何去看待。</strong></p>
 
       
