@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>算法入门三 | 某黑的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二分、三分、快速幂">
+  <meta name="description" content="二分、三分、倍增(快速幂、龟速乘)、偷懒技巧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法入门三">
 <meta property="og:url" content="http://yoursite.com/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/index.html">
 <meta property="og:site_name" content="某黑的个人博客">
-<meta property="og:description" content="二分、三分、快速幂">
+<meta property="og:description" content="二分、三分、倍增(快速幂、龟速乘)、偷懒技巧">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/%E6%9C%BA%E5%99%A8%E4%B8%8E%E4%BB%BB%E5%8A%A1.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/%E7%89%9B%E6%A3%9A%E4%B8%8E%E5%A5%B6%E7%89%9B.png">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/%E5%80%8D%E5%A2%9E.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/%E5%BF%AB%E9%80%9F%E5%B9%82.png">
 <meta property="article:published_time" content="2020-07-13T01:22:46.000Z">
-<meta property="article:modified_time" content="2020-07-13T10:25:27.230Z">
+<meta property="article:modified_time" content="2021-05-12T04:21:47.965Z">
 <meta property="article:author" content="长青">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -72,8 +72,6 @@
 				<li><a href="/archives/index.html">归档</a></li>
 	        
 				<li><a href="/photos/">相册</a></li>
-	        
-				<li><a href="/html">星座</a></li>
 	        
 			</ul>
 		</nav>
@@ -129,8 +127,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -147,13 +143,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/index.html">归档</a></li>
 		        
-					<li style="width: 25%"><a href="/photos/">相册</a></li>
-		        
-					<li style="width: 25%"><a href="/html">星座</a></li>
+					<li style="width: 33.333333333333336%"><a href="/photos/">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -194,7 +188,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>二分、三分、快速幂</strong></p>
+        <p><strong>二分、三分、倍增(快速幂、龟速乘)、偷懒技巧</strong></p>
 <a id="more"></a>
 
 <h2 id="一、二分"><a href="#一、二分" class="headerlink" title="一、二分"></a>一、二分</h2><h3 id="C-STL的二分查找函数及其经典实现"><a href="#C-STL的二分查找函数及其经典实现" class="headerlink" title="C++STL的二分查找函数及其经典实现"></a>C++STL的二分查找函数及其经典实现</h3><p>1.binary_search(a,a+size,x)    返回bool值，直接判断所查找的数是否存在。</p>
@@ -227,14 +221,38 @@
 <p>3.吹风机吹的时间的总和满足&lt;=mid则符合条件。</p>
 <h2 id="二、三分"><a href="#二、三分" class="headerlink" title="二、三分"></a>二、三分</h2><p><img src="/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/三分.png" style="zoom:60%;">如图，令mid = (Left + Right) / 2，midmid = （mid + Right）/ 2</p>
 <p>为找到极值点，若midmid&lt;mid,则干掉midmid~Right，重复至到达最高点。</p>
-<h2 id="三、快速幂"><a href="#三、快速幂" class="headerlink" title="三、快速幂"></a>三、快速幂</h2><p><strong>倍增：</strong><img src="/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/倍增.png" alt="倍增" style="zoom:50%;"></p>
+<h2 id="三、倍增"><a href="#三、倍增" class="headerlink" title="三、倍增"></a>三、倍增</h2><p><strong>倍增：</strong><img src="/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/倍增.png" alt="倍增" style="zoom:50%;"></p>
 <p><strong>快速幂原理：</strong>将幂转换为二进制的数，通过倍增去计算结果。</p>
 <p>举例：<img src="/2020/07/13/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E4%B8%89/快速幂.png" alt="快速幂" style="zoom:60%;"></p>
 <p>当然，求幂的时候是很容易爆long long的，所以一般快速幂会配有取模。</p>
 <p><strong>代码块</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">my_pow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> n,<span class="keyword">int</span> p)</span><span class="comment">//a的n次方模p</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t=a,ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n&amp;<span class="number">1</span>)		ans=(ans*t)%p;</span><br><span class="line">        t=t*t%p;</span><br><span class="line">        n&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">my_pow</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> n,<span class="keyword">int</span> mod)</span><span class="comment">//a的n次方模p</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t=a,ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n&amp;<span class="number">1</span>)		ans=(ans*t)%mod;</span><br><span class="line">        t=t*t%mod;</span><br><span class="line">        n&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>龟速乘取模</strong>：乘法得出的数很大，long long都装不下，想取模都没机会，此时就得将乘法转换为加法，同样以倍增做题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">Mymul</span><span class="params">(ll a,ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll t=a,ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)	ans=(ans+t)%mod;<span class="comment">//2的某次方</span></span><br><span class="line">		t=(t+t)%mod;<span class="comment">//都接近mod的话相加也才12位，不溢出</span></span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>快速幂的时候如果mod很大(10位左右),那么就要小心了，因为有可能ans*t会溢出(long long最大值差不多1e18)，这时的ans*t就得用龟速乘。</p>
+<p>例题：<a href="https://ac.nowcoder.com/acm/problem/213215" target="_blank" rel="noopener">https://ac.nowcoder.com/acm/problem/213215</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">9999999967</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">Mymul</span><span class="params">(ll a,ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll t=a,ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)	ans=(ans+t)%mod;<span class="comment">//ans和t如果都接近mod,相加也才+1位，不会超出ll的19次方 </span></span><br><span class="line">		t=(t+t)%mod;</span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">Mypow</span><span class="params">(ll a,ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ll t=a,ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)	ans=Mymul(ans,t)%mod;<span class="comment">//ans和t如果都接近mod，那相乘会溢出 </span></span><br><span class="line">		t=Mymul(t,t)%mod; <span class="comment">//与上同理 </span></span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> T;<span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">	<span class="keyword">while</span>(T--)</span><br><span class="line">	&#123;</span><br><span class="line">		ll x,i;<span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>,&amp;x,&amp;i);</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;Mypow(x,i)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四、偷懒小技巧"><a href="#四、偷懒小技巧" class="headerlink" title="四、偷懒小技巧"></a>四、偷懒小技巧</h2><ol>
+<li>最大公因数与最小公倍数</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="comment">/*最大公因数*/</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;__gcd(<span class="number">6</span>,<span class="number">9</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">/*最小公倍數*/</span></span><br><span class="line"><span class="function">ll <span class="title">lcm</span><span class="params">(ll a,ll b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a/__gcd(a,b)*b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>π的引用</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi=<span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>求二进制数的LowBit（最低位的1所对应的值）</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原理：补码转换的巧妙运用。</p>
 
       
 
@@ -382,7 +400,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、二分"><span class="toc-number">1.</span> <span class="toc-text">一、二分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C-STL的二分查找函数及其经典实现"><span class="toc-number">1.1.</span> <span class="toc-text">C++STL的二分查找函数及其经典实现</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#引入题目1："><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">引入题目1：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分枚举答案（求解最大值最小or最小值最大）"><span class="toc-number">1.2.</span> <span class="toc-text">二分枚举答案（求解最大值最小or最小值最大）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#引入题目1：-1"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">引入题目1：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#引入题目2："><span class="toc-number">1.2.0.0.2.</span> <span class="toc-text">引入题目2：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、三分"><span class="toc-number">2.</span> <span class="toc-text">二、三分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、快速幂"><span class="toc-number">3.</span> <span class="toc-text">三、快速幂</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、二分"><span class="toc-number">1.</span> <span class="toc-text">一、二分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C-STL的二分查找函数及其经典实现"><span class="toc-number">1.1.</span> <span class="toc-text">C++STL的二分查找函数及其经典实现</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#引入题目1："><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">引入题目1：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分枚举答案（求解最大值最小or最小值最大）"><span class="toc-number">1.2.</span> <span class="toc-text">二分枚举答案（求解最大值最小or最小值最大）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#引入题目1：-1"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">引入题目1：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#引入题目2："><span class="toc-number">1.2.0.0.2.</span> <span class="toc-text">引入题目2：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、三分"><span class="toc-number">2.</span> <span class="toc-text">二、三分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、倍增"><span class="toc-number">3.</span> <span class="toc-text">三、倍增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、偷懒小技巧"><span class="toc-number">4.</span> <span class="toc-text">四、偷懒小技巧</span></a></li></ol>
                     </div>
                 </span>
             </div>
