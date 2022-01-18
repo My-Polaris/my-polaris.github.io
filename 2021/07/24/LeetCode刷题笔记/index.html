@@ -16,7 +16,7 @@
 <meta property="og:description" content="削微做下笔记">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-23T16:26:26.000Z">
-<meta property="article:modified_time" content="2021-12-30T09:34:39.769Z">
+<meta property="article:modified_time" content="2022-01-18T08:44:37.215Z">
 <meta property="article:author" content="长青">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -185,8 +185,8 @@
 <a id="more"></a>
 
 <h2 id="算法入门康复训练"><a href="#算法入门康复训练" class="headerlink" title="算法入门康复训练"></a>算法入门康复训练</h2><p>题集：leetcode每日一题，<a href="https://leetcode-cn.com/study-plan/algorithms/?progress=xeb1gac" target="_blank" rel="noopener">leetcode算法入门与基础</a>，<a href="https://leetcode-cn.com/problem-list/xb9nqhhg/" target="_blank" rel="noopener">leetcode剑指offer第2版</a></p>
-<h4 id="1-关于二分查找中left的定位"><a href="#1-关于二分查找中left的定位" class="headerlink" title="1.关于二分查找中left的定位"></a>1.关于二分查找中left的定位</h4><p>其实二分查找已经是典中典了，和之前的排序一样，二分的写法太多了，所以确定自己的模板很重要。</p>
-<p>标准模板如下：</p>
+<h4 id="1-关于二分查找中left的定位"><a href="#1-关于二分查找中left的定位" class="headerlink" title="1.关于二分查找中left的定位"></a>1.关于二分查找中left的定位</h4><p>其实二分查找已经是典中典了，和之前的排序一样，二分的写法太多了，所以确定自己的写法标准很重要。</p>
+<p>标准模板：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,left=<span class="number">0</span>,right=nums.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(left&lt;=right)<span class="comment">//①(left&lt;right)</span></span><br><span class="line">    &#123;</span><br><span class="line">        mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        <span class="comment">//之所以不用(left+right)/2的写法是因为left+right是有可能会造成溢出的,而用减法则避免了溢出</span></span><br><span class="line">        <span class="keyword">if</span>(nums[mid]&lt;target)    left=mid+<span class="number">1</span>;<span class="comment">//left此前的数都&lt;target</span></span><br><span class="line">        <span class="keyword">else</span>    right=mid<span class="number">-1</span>;<span class="comment">//②right=mid;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>left的定位：不满足判断条件的第一个元素。</strong></p>
 <p>需要注意的是，</p>
@@ -194,7 +194,7 @@
 <p>2.搜索区间为： [left, right]，left返回值[0,numsize()+1],right返回值[-1,nums.size()],mid取值[0,nums.size()-1]</p>
 <p><strong>拓展</strong></p>
 <p>例题：<a href="https://leetcode-cn.com/problems/find-peak-element/" target="_blank" rel="noopener">寻找峰值</a> <a href="https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 11. 旋转数组的最小数字</a></p>
-<p>在某些时候，我们会用到<code>(left&lt;right)</code>的模板，不同处参考代码块的①和②</p>
+<p>在某些时候，我们会用到<code>(left&lt;right)</code>的写法，不同处参考标准模板代码块的①和②</p>
 <p>特定的场景诸如：1.判断条件实时改变，为防止越界。2.某些情况需要应用right=mid以避免错过目标值。</p>
 <p>这一模板的搜索区间为[left,right)，若初始化right=nums.size()-1，那么当整个数组中都&lt;target时,返回值依旧是最后一个元素。</p>
 <p><strong>背板子是走不到最后的，深刻理解+灵活运用才是王道。</strong></p>
@@ -280,7 +280,7 @@
 <p>简单来说就是：从后往前遍历，把比当前元素小的都出栈。</p>
 <p>类比于：看后面比自己高的人(考虑遮挡)——显然,两个高的人之间是不需要有人的,因为他们不再会被看到；同时，栈的特性也让自己能一眼看到比自己高的第一个人。</p>
 <h4 id="10-位运算经典"><a href="#10-位运算经典" class="headerlink" title="10.位运算经典"></a>10.位运算经典</h4><p>例题：<a href="https://leetcode-cn.com/problems/single-number-iii/" target="_blank" rel="noopener">只出现一次的数字 III</a></p>
-<p>挺经典的，用位运算找出数组中的非重复元素，但这题关键在于有俩非重复元素，已知这俩的异或值，怎么在数组里找到这俩数呢？这里的处理挺巧妙的，找出这个异或值的最低位1，显然这个1肯定由该位为1的数与该为为0的数异或得出，那么就可以在此基础上分类，让所有该为为1的数进行异或运算就会得到A数，所有该为为0的数进行异或运算就会得到B数。</p>
+<p>挺经典的，用位运算找出数组中的非重复元素，但这题关键在于有俩非重复元素，已知这俩的异或值，怎么在数组里找到这俩数呢？这里的处理挺巧妙的，找出这个异或值的最低位1，显然这个1肯定由该位为1的数与该位为0的数异或得出，那么就可以在此基础上分类，让所有该位为1的数进行异或运算就会得到A数，所有该位为0的数进行异或运算就会得到B数。</p>
 <h4 id="11-二叉树的前-中-后序遍历"><a href="#11-二叉树的前-中-后序遍历" class="headerlink" title="11.二叉树的前/中/后序遍历"></a>11.二叉树的前/中/后序遍历</h4><p>例题:<a href="https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/" target="_blank" rel="noopener">剑指 Offer 07. 重建二叉树</a></p>
 <p>算是回顾很久以前学的知识了,但之所以记下这题主要还是因为这题的预处理挺精髓的，正常来讲我们是每次都需要遍历中序遍历找根，但是如果我做个预处理，以unordered_map&lt;int,int&gt;记录key与value的反转，那么当我想找对应value的key时,就可以直接通过下标找到。</p>
 <h4 id="12-弗雷耶兹-Fisher-Yates-随机算法"><a href="#12-弗雷耶兹-Fisher-Yates-随机算法" class="headerlink" title="12.弗雷耶兹(Fisher-Yates)随机算法"></a>12.弗雷耶兹(Fisher-Yates)随机算法</h4><p>例题：<a href="https://leetcode-cn.com/problems/shuffle-an-array/" target="_blank" rel="noopener">打乱数组</a></p>
