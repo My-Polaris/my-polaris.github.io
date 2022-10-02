@@ -15,13 +15,13 @@
 <meta property="og:site_name" content="某黑的个人博客">
 <meta property="og:description" content="一些容易忽略的点">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://webvoobssdl.kugou.com/d3ae9440db4f66f53aecb029a0da9deb.png">
+<meta property="og:image" content="https://webvoobssdl.kugou.com/ba6560a8e81ac4c91e6ce06cd32a8aca.png">
 <meta property="article:published_time" content="2022-07-04T14:01:38.000Z">
-<meta property="article:modified_time" content="2022-08-10T13:52:49.638Z">
+<meta property="article:modified_time" content="2022-10-02T01:49:37.338Z">
 <meta property="article:author" content="长青">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://webvoobssdl.kugou.com/d3ae9440db4f66f53aecb029a0da9deb.png">
+<meta name="twitter:image" content="https://webvoobssdl.kugou.com/ba6560a8e81ac4c91e6ce06cd32a8aca.png">
   
     <link rel="alternative" href="/atom.xml" title="某黑的个人博客" type="application/atom+xml">
   
@@ -202,7 +202,7 @@
 <li>页面的渲染时刻是在浏览器解析到<code>&lt;body&gt;</code>标签开始。</li>
 <li>defer和async都只对外部脚本文件有效，并且都会进行不阻塞的下载（新开线程）；defer脚本文档渲染后才按原来顺序执行，async脚本加载完就执行且谁快谁执行，因此最好别在async里操作DOM，不然边渲染边操作DOM容易出性能问题。</li>
 <li>creatElement创建的script标签默认添加了async属性。</li>
-<li>除非script标签要带非js代码，否则最好不要指定type。</li>
+<li>除非script标签要带非js代码，否则最好不要指定type（因为可能导致脚本被忽略）。</li>
 <li>引用外部js文件的好处，可维护性、缓存后可复用。</li>
 </ul>
 <h4 id="三、语言基础"><a href="#三、语言基础" class="headerlink" title="三、语言基础"></a>三、语言基础</h4><ul>
@@ -214,7 +214,7 @@
 </li>
 <li><p>严格模式下delete未声明的变量会出错，非严格模式下不会。</p>
 </li>
-<li><p>用于保存对象的变量，未赋值时以null填充，这也是typef null == ‘object’的原因，因为null的含义就是空对象指针。</p>
+<li><p>最佳实践：用于保存对象的变量，未赋值时以null填充，这也是typef null == ‘object’的原因，因为null的含义就是空对象指针。</p>
 </li>
 <li><p>NaN转换为Boolean是false。</p>
 </li>
@@ -222,35 +222,36 @@
 </li>
 <li><p>js除法中，0做分子返回0，0做分母返回正负无穷（Infinity），0同时做分子分母返回NaN。</p>
 </li>
-<li><p>isNaN函数接收不能转为数字的变量就返回true。</p>
+<li><p>isNaN函数接收不能转为数字的变量就返回true。（注意区分isNaN与Number.isNaN，后者没有隐式类型转换）</p>
 </li>
 <li><p>js获取对象的值的时候，先调用对象的ValueOf()方法，再调用toString()方法。</p>
 </li>
-<li><p>parseInt与Number差别：第一个非空字符不是数字(包括+-)直接返回NaN，空字符也是如此，而Number遇到空字符返回0；parseInt遇到非字符后会直接截断；parseInt接收第二个参数指定进制，不传的话就判断开头的0x和0（非严格模式下依旧不支持八进制）。</p>
+<li><p>parseInt与Number差别：parseInt遇到第一个非空字符不是数字(包括+-)直接返回NaN，空字符也是如此，而Number遇到空字符返回0；parseInt遇到非字符后会直接截断；parseInt接收第二个参数指定进制，不传或传0的话就判断开头的0x和0（非严格模式下依旧不支持八进制）。（注意parseInt第二个参数传0的话是和不传第二个参数一个效果的）</p>
 </li>
-<li><p>parseFloat（对标parseInt）：会识别第一个’.’，只解析十进制值且会忽略开头的0，遇到0x会返回0，无法指定底数。</p>
+<li><p>parseFloat（对标parseInt）：会识别第一个’.’，只解析十进制值（会忽略开头的0，遇到0x会返回0）。</p>
 </li>
 <li><p>Symbol不支持构造函数，即 new Symbol()会报错。</p>
 </li>
 <li><p>Symbol.for(str)与普通Symbol的差别：Symbol.for()会返回符号（依据str标识查找注册表，有就返回符号，没有就注册并返回符号），而普通Symbol只是声明了一块内存。</p>
 </li>
 <li><p>即使JS的数字是64位存储，但JS的位运算会将数字转换为32位再进行位运算，再将结果转为64位。（也就说位运算无法得出超过INT_MAX，小于INT_MIN的数，对超出INT范围的数字位运算也得不到理想的结果）</p>
-<p><img src="https://webvoobssdl.kugou.com/d3ae9440db4f66f53aecb029a0da9deb.png" alt></p>
-<p>上图中，a的初始值超出INT了，位运算时强行转换为32位补码，a被认定为INT_MIN，此时在进行非运算会得出INT_MAX。</p>
+<p><img src="https://webvoobssdl.kugou.com/ba6560a8e81ac4c91e6ce06cd32a8aca.png" alt></p>
+<p>上图中，a的初始值超出INT了，位运算时强行截断至32位，因此超出32位的1被无视了。</p>
 </li>
-<li><p><code>&gt;&gt;&gt;</code>表示无符号位移，即把数字当成无符号数。</p>
+<li><p>位运算：左移<code>&lt;&lt;</code>只有一种，会保留数字符号，有符号右移<code>&gt;&gt;</code>填充符号位，无符号右移<code>&gt;&gt;&gt;</code>填充0。（数字以补码形式存储）</p>
 </li>
-<li><p>+-操作符会隐式调用Number()，!操作费会隐式调用Boolean()</p>
+<li><p>+-操作符会隐式调用Number()，!操作费会隐式调用Boolean()。</p>
 </li>
 <li><p>无穷大+无穷大=无穷大，无穷小+无穷小=无穷小，无穷大+无穷小=NaN，操作数有NaN结果就是NaN。</p>
 </li>
-<li><p>加法中字符串是大哥，减法与关系运算中数字是大哥，相等判断中布尔是大哥。(与大哥运算的时候要被大哥同化)</p>
+<li><p>加法中字符串是大哥，减法与关系运算中数字是大哥，相等判断和比较运算中数字是大哥(且出现bool值时都会先把它变为数字)。(与大哥运算的时候要被大哥同化)</p>
 </li>
-<li><p>undefined和null在和字符串相加时，会变为’undefined’和’null’并进行拼接；它俩在相等运算符时不转换成其他类型。</p>
+<li><p>undefined和null在和字符串相加时，会变为’undefined’和’null’并进行拼接；它俩在相等运算符时不转换成其他类型。（但是注意undefined==null为true，是因为规范中规定了相等，而不是因为发生了类型转换，当然他们不全等）</p>
 </li>
 <li><p>for in会枚举非符号类的属性，for of的使用前提是可迭代对象，一般对象能被for in但不能被for of。</p>
 </li>
 <li><p>js的标签语句有点陌生的，简单来说就是能给for语句下一个标签，然后配合break和continue关键字使用，可以做到直接break或continue到外部循环。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">0</span>; </span><br><span class="line">outermost: </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123; </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123; </span><br><span class="line">		<span class="keyword">if</span> (i == <span class="number">5</span> &amp;&amp; j == <span class="number">5</span>) &#123; </span><br><span class="line">			<span class="keyword">break</span> outermost; </span><br><span class="line"> 		&#125; </span><br><span class="line">		num++; </span><br><span class="line">	&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 55</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>with语句也挺陌生的，简单来说就是创建一个对象作用域。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span>(location) &#123; <span class="comment">//实际应该是location.hostname,location.search等</span></span><br><span class="line">	<span class="keyword">let</span> qs = search.substring(<span class="number">1</span>); </span><br><span class="line">	<span class="keyword">let</span> hostName = hostname; </span><br><span class="line">	<span class="keyword">let</span> url = href; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -261,43 +262,43 @@
 <h4 id="四、变量、作用域与内存"><a href="#四、变量、作用域与内存" class="headerlink" title="四、变量、作用域与内存"></a>四、变量、作用域与内存</h4><ul>
 <li>ECMAScript所有函数都是按值传递的。</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>) </span>&#123; </span><br><span class="line"> obj.name = <span class="string">"Nicholas"</span>; </span><br><span class="line"> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(); </span><br><span class="line"> obj.name = <span class="string">"Greg"</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>(); </span><br><span class="line">setName(person); </span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// "Nicholas"</span></span><br><span class="line"><span class="comment">// 可以看到person的指向并没有变,因此即使引用类型也是按值传递的</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">obj</span>) </span>&#123; </span><br><span class="line"> obj.name = <span class="string">"Nicholas"</span>; </span><br><span class="line"> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(); </span><br><span class="line"> obj.name = <span class="string">"Greg"</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>(); </span><br><span class="line">setName(person); </span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// "Nicholas"</span></span><br><span class="line"><span class="comment">// 可以看到person的指向并没有变,因此即使引用类型也是按值传递的,只是传的是"地址"</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>引用计数的回收机制会有循环引用的问题，所以现在基本都是依据标记清理，特别的，IE9以前的DOM采用的是引用计数，所以有时会有小问题。</li>
 </ul>
 <h4 id="五、基本引用类型"><a href="#五、基本引用类型" class="headerlink" title="五、基本引用类型"></a>五、基本引用类型</h4><ul>
-<li><p>Date类存储形式为自1970.1.1开始的毫秒数，因此可以直接比较大小，构造函数的初始化会隐式调用Date.parse()和Date.UTC()，常见的格式化方法为<code>toLocaleTimeString()</code>返回年月日(/分隔)，<code>toLocaleTimeString()</code>返回时分秒(:分隔)。</p>
+<li><p>Date类存储形式为自1970.1.1开始的毫秒数，因此可以直接比较大小，构造函数的初始化会隐式调用Date.parse()和Date.UTC()，常见的格式化方法为<code>toLocaleDateString()</code>返回年月日(/分隔)，<code>toLocaleTimeString()</code>返回时分秒(:分隔)。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"May 23, 2019"</span>);<span class="comment">//Date.parse("May 23, 2019")</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2005</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">17</span>, <span class="number">55</span>, <span class="number">55</span>);<span class="comment">//Date.UTC(2005, 4, 5, 17, 55, 55)</span></span><br><span class="line">time.toLocaleTimeString()</span><br><span class="line"><span class="string">'17:23:56'</span></span><br><span class="line">time.toLocaleDateString()</span><br><span class="line"><span class="string">'2022/7/11'</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>注意点：getTime获取毫秒表示，getDate获取日，getDay()获取周几(0~6)。</p>
 </li>
 <li><p>RegExp类的使用场景一般是需要根据字符串生成动态正则，由于传参的字符串，字符串本身也带有<code>\</code>转移，所以需要二次转义，比如正则里的<code>\d</code>在字符串里要是<code>\\d</code>。（参数里1传//里的，2传flags表示匹配模式，如<code>new RegExp(&quot;[bc]at&quot;, &quot;i&quot;)</code>）</p>
 </li>
-<li><p>exec返回值，带\g的话会基于上次匹配的lastIndex继续匹配。</p>
+<li><p>exec返回值，带\g的话会基于上次匹配的lastIndex继续匹配。（lastIndex是指向匹配到的字符的最后一位的下一位）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	Array:0是匹配的字符串,之后是捕获组匹配的字符串</span><br><span class="line">	index:匹配到的位置(起始)</span><br><span class="line">	input:要查找的字符串</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>为什么基本类型不是对象却可以调用自有方法呢，比如str.slice()，其实是底层会去创建相应的对象实例（Number，Boolean，String），调用特定方法后再销毁；不过即便如此，非特殊情况也不推荐显示用对象声明，免得开发者分不清它们到底是原始值还是引用值。（特殊情况是指需要把它们当对象处理，挂载一些属性啥的）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="string">"some text"</span>; </span><br><span class="line"><span class="keyword">let</span> s2 = s1.substring(<span class="number">2</span>);</span><br><span class="line">相当于=====》</span><br><span class="line"><span class="keyword">let</span> s1 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"some text"</span>); </span><br><span class="line"><span class="keyword">let</span> s2 = s1.substring(<span class="number">2</span>); </span><br><span class="line">s1 = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="string">"some text"</span>; </span><br><span class="line"><span class="keyword">let</span> s2 = s1.substring(<span class="number">2</span>);</span><br><span class="line">第二行相当于=====》</span><br><span class="line"><span class="keyword">let</span> s1 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"some text"</span>); </span><br><span class="line"><span class="keyword">let</span> s2 = s1.substring(<span class="number">2</span>); </span><br><span class="line">s1 = <span class="string">"some text"</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>new String(“sss”)与new Object(“sss”)是同样效果的，后者instanceof String会为true。</p>
 </li>
 <li><p>在布尔表达式中对象会自动转换为true，即使是new Boolean(false)也不例外。</p>
 </li>
-<li><p>截取字符串的方法：slice和substring都是表示截取a<del>b，而substr表示截取a</del>a+b，不传第二个参都默认是末尾；负数处理中，一种是处理为字符串长度+该负数，第二种是处理为0，slice都为方式1，substring都为方式2，substr第一个参数是方式1，第二个参数是方式二。</p>
+<li><p>截取字符串的方法：slice和substring都是表示截取a~b，而substr表示截取a~a+b，不传第二个参都默认是末尾；负数处理中，一种是处理为字符串长度+该负数，第二种是处理为0，slice都为方式1，substring都为方式2，substr第一个参数是方式1，第二个参数是方式二。</p>
 </li>
-<li><p>查找字符串位置的方法：indexOf从头开始找，lastIndexOf从结尾开始找，找不到都返回-1，可以传第2个参数确认起点下标；ES7还多了个includes方法，差别就是能返回bool值表示找没找到。</p>
+<li><p>查找字符串位置的方法：indexOf从头开始找，lastIndexOf从结尾开始找，找不到都返回-1，可以传第2个参数确认起点下标；ES7还多了个includes方法，差别就是能返回bool值表示找没找到，并且includes能找NaN。</p>
 </li>
 <li><p>冷门方法之——填充方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">"foo"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padStart(<span class="number">6</span>)); <span class="comment">// " foo" </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padStart(<span class="number">9</span>, <span class="string">"."</span>)); <span class="comment">// "......foo" </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padEnd(<span class="number">6</span>)); <span class="comment">// "foo " </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padEnd(<span class="number">9</span>, <span class="string">"."</span>)); <span class="comment">// "foo......"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stringValue = <span class="string">"foo"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padStart(<span class="number">6</span>)); <span class="comment">// "   foo" </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padStart(<span class="number">9</span>, <span class="string">"."</span>)); <span class="comment">// "......foo" </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padEnd(<span class="number">6</span>)); <span class="comment">// "foo   " </span></span><br><span class="line"><span class="built_in">console</span>.log(stringValue.padEnd(<span class="number">9</span>, <span class="string">"."</span>)); <span class="comment">// "foo......"</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>match和replace都是字符串的方法，RegExp只有个exec。</p>
+<li><p>match和replace都是字符串的方法，exec和test才是RegExp的。</p>
 </li>
-<li><p>eval是执行时加载，也就说在里面用声明变量和函数的话，在eval外是不能用的，但其实var和function可以，因为他们有声明提升。</p>
+<li><p>eval是执行时加载，也就说在里面用声明变量和函数的话，在eval外是不能用的。</p>
 </li>
 </ul>
 <h4 id="六、集合引用类型"><a href="#六、集合引用类型" class="headerlink" title="六、集合引用类型"></a>六、集合引用类型</h4><ul>
-<li><p>Array构造允许不适用new，效果不变。</p>
+<li><p>Array构造允许不使用new，效果不变。</p>
 </li>
 <li><p>Array.from()：类数组-&gt;数组；Array.of()：一组参数-&gt;数组。</p>
 </li>
@@ -309,11 +310,11 @@
 </li>
 <li><p>unshift()方法可以用于在数组头部加元素。</p>
 </li>
-<li><p>sort()默认情况下会将每一项都当成字符串进行大小比较，因此如果对数值sort()的话要自己指定排序规则。（从小到大：sort((a,b)=&gt;a-b)，负数1排前，正数2排前）</p>
+<li><p>sort()默认情况下会将每一项都当成字符串进行大小比较，因此如果对数值sort()的话要自己指定排序规则。（从小到大：sort((a,b)=&gt;a-b)，负数a排前，正数b排前）</p>
 </li>
 <li><p>splice()常用于删除某些元素的同时插入元素，第一个参数是起始位置，第二个参数是删除的元素个数，后面的N个参数表示要插入的值。</p>
 </li>
-<li><p>断言函数，听起来很高大上，其实就是一个判断是否匹配的函数；在find和findIndex函数时的传参就是断言参数，(element,index,array)=&gt;boolean。（楼下some,every,filter的第一个参数应该都算断言函数）</p>
+<li><p>断言函数，听起来很高大上，其实就是一个判断是否匹配的函数；在find和findIndex函数时的传参就是断言参数，(element,index,array)=&gt;boolean。（楼下some，every，filter的第一个参数应该都算断言函数）</p>
 </li>
 <li><p>数组的5种迭代方式传参都是((item,index,array),thisArg)，所以重写的时候需要注意，第一个参数是处理函数，第二个参数是上下文环境。</p>
 <blockquote>
@@ -325,11 +326,12 @@
 </li>
 <li><p><strong>定型数组我理解为Js为了和某些类型严格的库（多为图形库）进行数据交互时提供的一种便捷性的类型，相关知识点我没细究</strong>。</p>
 </li>
-<li><p>Map与Object的差别，Object只能用数值、字符串与符号作为键值，Map可以用任意类型；Map会维护插入顺序，可以遍历其.entires()或[Symbol.iterator]，直接用forEach也行；（Set同理，Set其实就是key和value都是一个值的Map）</p>
+<li><p>Map与Object的差别，Object只能用数值（数值其实也会转为字符串）、字符串与符号作为键值，Map可以用任意类型；Map会维护插入顺序，可以遍历其.entires()或[Symbol.iterator]，直接用forEach也行；（Set同理，Set其实就是key和value都是一个值的Map）</p>
 </li>
 </ul>
 <h4 id="七、迭代器与生成器"><a href="#七、迭代器与生成器" class="headerlink" title="七、迭代器与生成器"></a>七、迭代器与生成器</h4><ul>
 <li><p>可迭代对象的本质，暴露一个[Symbol.iterator]属性，值为相应的迭代器工厂函数，函数返回一个新迭代器。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">Symbol</span>.iterator]() &#123; </span><br><span class="line">	<span class="keyword">let</span> count = <span class="number">1</span>, </span><br><span class="line">	limit = <span class="keyword">this</span>.limit; </span><br><span class="line">	<span class="keyword">return</span> &#123; </span><br><span class="line">		next() &#123; </span><br><span class="line">			<span class="keyword">if</span> (count &lt;= limit) &#123; </span><br><span class="line"> 				<span class="keyword">return</span> &#123; <span class="attr">done</span>: <span class="literal">false</span>, <span class="attr">value</span>: count++ &#125;; </span><br><span class="line">			&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">				<span class="keyword">return</span> &#123; <span class="attr">done</span>: <span class="literal">true</span>, <span class="attr">value</span>: <span class="literal">undefined</span> &#125;; </span><br><span class="line"> 			&#125; </span><br><span class="line"> 		&#125; </span><br><span class="line"> 	&#125;; </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>一个有意思的点：维护同一个迭代器</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]; </span><br><span class="line"><span class="keyword">let</span> iter = a[<span class="built_in">Symbol</span>.iterator](); </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> iter) &#123; </span><br><span class="line"> <span class="built_in">console</span>.log(i); </span><br><span class="line"> <span class="keyword">if</span> (i &gt; <span class="number">2</span>)	<span class="keyword">break</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 1 </span></span><br><span class="line"><span class="comment">// 2 </span></span><br><span class="line"><span class="comment">// 3 </span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> iter) &#123; </span><br><span class="line"> <span class="built_in">console</span>.log(i); </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 4 </span></span><br><span class="line"><span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
@@ -338,7 +340,13 @@
 </li>
 </ul>
 <h4 id="八、对象与类"><a href="#八、对象与类" class="headerlink" title="八、对象与类"></a>八、对象与类</h4><ul>
-<li><p>数据属性，以普通方式声明时，前三个参数都默认为true；以Object.defineProperty声明时，传入第三个参数，前三者中未被指定的都默认为false。</p>
+<li><p>对象的属性是拥有一些[特性]的，它们标志了这个属性的特点；以特性为基础，可以分为两种类型的属性，分别为数据属性和访问器属性。</p>
+</li>
+<li><p>数据属性</p>
+<ul>
+<li>以普通方式声明时（比如<code>let a = {name:&#39;z3&#39;}</code>，这个name属性就是普通方式声明的），前三个参数都默认为true；</li>
+<li>以Object.defineProperty方式声明时（比如<code>Object.defineProperty(person, &quot;name&quot;, { configurable: false,value: &quot;Nicholas&quot;});</code>），声明时前三个参数中未被指定的都默认为false。</li>
+</ul>
 <blockquote>
 <p>Configurable：是否可以通过 delete 删除并重新定义，是否可以修改它的特</p>
 <p>性，以及是否可以把它改为访问器属性。</p>
@@ -347,7 +355,10 @@
 <p>Value：值，默认值为undefined。</p>
 </blockquote>
 </li>
-<li><p>访问器属性，只能以Object.defineProperty声明，传入第三个参数时，未指定前两者则默认为false，未指定get则表示只可写，未指定set则表示只可读。</p>
+<li><p>访问器属性</p>
+<ul>
+<li>只能以Object.defineProperty方式声明，声明时前两个参数未被指定则默认为false，未指定get则表示只可写，未指定set则表示只可读。</li>
+</ul>
 <blockquote>
 <p>Configurable：是否可以通过 delete 删除并重新定义，是否可以修改它的特</p>
 <p>性，以及是否可以把它改为访问器属性。</p>
@@ -356,15 +367,16 @@
 <p>Set()：设置属性的时候会调用</p>
 </blockquote>
 </li>
-<li><p>需要注意的是，数据属性和访问器属性都是属性，不分家且互斥，也就是说一个属性要么为数据属性要么为访问器属性，同名的话会互相覆盖。</p>
+<li><p>需要注意的是，一个属性要么为数据属性要么为访问器属性，同名的话会互相覆盖。</p>
 </li>
 <li><p>静态方法Object.getOwnPropertyDescriptors()可以查看对象的所有属性的特性，它实际上是依赖对象身上的getOwnPropertyDescriptor()方法完成的。</p>
 </li>
-<li><p>Object.defineProperties可以用于定义一个对象的多个属性及其特性。（第二个参数）</p>
+<li><p>Object.defineProperties可以用于定义一个对象的多个属性及其特性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> book = &#123;&#125;; </span><br><span class="line"><span class="built_in">Object</span>.defineProperties(book, &#123; </span><br><span class="line">	year_: &#123; </span><br><span class="line">		value: <span class="number">2017</span> </span><br><span class="line"> 	&#125;, </span><br><span class="line"> 	edition: &#123; </span><br><span class="line">		value: <span class="number">1</span> </span><br><span class="line"> 	&#125;, </span><br><span class="line"> 	year: &#123; </span><br><span class="line"> 		<span class="keyword">get</span>: function() &#123; </span><br><span class="line"> 			<span class="keyword">return</span> <span class="keyword">this</span>.year_; </span><br><span class="line"> 		&#125;, </span><br><span class="line"> 		<span class="keyword">set</span>: function(newValue)&#123; </span><br><span class="line"> 			<span class="keyword">if</span> (newValue &gt; <span class="number">2017</span>) &#123; </span><br><span class="line"> 				<span class="keyword">this</span>.year_ = newValue; </span><br><span class="line"> 				<span class="keyword">this</span>.edition += newValue - <span class="number">2017</span>; </span><br><span class="line"> 			&#125; </span><br><span class="line"> 		&#125; </span><br><span class="line"> 	&#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Object.assign的实现机制是，调用源对象的get方法，将返回结果作为目标对象set方法的参数，调用目标对象的set方法。</p>
 </li>
-<li><p>ES6：属性值简写，可计算属性，简写方法名，解构赋值，类。</p>
+<li><p>ES6常见：属性值简写，可计算属性，简写方法名，解构赋值，类。</p>
 </li>
 <li><p>类构造函数不用new调用会报错，而普通构造函数不会（默认this为global对象）。</p>
 </li>
@@ -383,7 +395,7 @@
 </li>
 </ul>
 <h4 id="九、代理与反射"><a href="#九、代理与反射" class="headerlink" title="九、代理与反射"></a>九、代理与反射</h4><ul>
-<li><p>Proxy代理其实就是类似于，在原对象上套一层代理对象，可以做一些拦截代理的意义就是为基本操作嵌入一些额外行为。</p>
+<li><p>Proxy代理其实就是类似于，在原对象上套一层代理对象，可以做一些拦截，代理的意义就是为基本操作嵌入一些额外行为。</p>
 </li>
 <li><p>Reflect反射与Proxy代理对应，存放一些原始行为，如get，set之类的，一般都是拦截后做一些自己的处理，然后直接调用全局Reflect对象上的相应方法即可。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> target = &#123; </span><br><span class="line">	foo: <span class="string">'bar'</span>, </span><br><span class="line">	baz: <span class="string">'qux'</span> </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> handler = &#123; </span><br><span class="line">	<span class="keyword">get</span>(trapTarget, property, receiver) &#123;</span><br><span class="line">        <span class="comment">// 目标对象,查询的属性,代理对象</span></span><br><span class="line">		<span class="keyword">let</span> decoration = <span class="string">''</span>; </span><br><span class="line">		<span class="keyword">if</span> (property === <span class="string">'foo'</span>) &#123; </span><br><span class="line">			decoration = <span class="string">'!!!'</span>; </span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Reflect</span>.get(...arguments) + decoration; </span><br><span class="line"> 	&#125; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, handler); </span><br><span class="line"><span class="built_in">console</span>.log(target.foo); <span class="comment">// bar</span></span><br><span class="line"><span class="built_in">console</span>.log(target.baz); <span class="comment">// qux</span></span><br><span class="line"><span class="built_in">console</span>.log(proxy.foo); <span class="comment">// bar!!!</span></span><br><span class="line"><span class="built_in">console</span>.log(proxy.baz); <span class="comment">// qux</span></span><br></pre></td></tr></table></figure>
@@ -397,7 +409,7 @@
 </li>
 </ul>
 <h4 id="十、函数"><a href="#十、函数" class="headerlink" title="十、函数"></a>十、函数</h4><ul>
-<li><p>ECMAScript的函数参数只是为了方便才写出来的，实际上都是从arguments对象取出。</p>
+<li><p>ECMAScript的函数参数只是为了方便才写出来的，本质上都是从arguments对象取出。</p>
 </li>
 <li><p>箭头函数不能使用 arguments、super 和new.target，也不能用作构造函数。此外，箭头函数也没有 prototype 属性。</p>
 </li>
@@ -406,13 +418,14 @@
 <li><p>arguments对象只反应传进来的值，修改命名参数并不会同步到arguments对象，因此默认参数设置的时候也自然不会影响到arguments对象。</p>
 </li>
 <li><p>arguments.callee会指向arguments对象所在的函数，可以用于解决函数表达式可能会有的问题。（用函数声明就没这问题）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> anotherFactorial = factorial;<span class="comment">// 假设factorial是一个匿名递归函数</span></span><br><span class="line">factorial = <span class="literal">null</span>; </span><br><span class="line"><span class="built_in">console</span>.log(anotherFactorial(<span class="number">4</span>)); <span class="comment">// 报错,因为函数内找不到factorial了</span></span><br><span class="line"><span class="comment">// 递归这样写就没问题,类似于解耦的作用</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>) </span>&#123; </span><br><span class="line">	<span class="keyword">if</span> (num &lt;= <span class="number">1</span>)	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span>	<span class="keyword">return</span> num * <span class="built_in">arguments</span>.callee(num - <span class="number">1</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> anotherFactorial = factorial;<span class="comment">// 假设factorial是一个匿名递归函数</span></span><br><span class="line">factorial = <span class="literal">null</span>; </span><br><span class="line"><span class="built_in">console</span>.log(anotherFactorial(<span class="number">4</span>)); <span class="comment">// 报错,因为函数内找不到factorial了</span></span><br><span class="line"><span class="comment">// 递归这样写就没问题,类似于解耦的作用</span></span><br><span class="line">factorial = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123; </span><br><span class="line">	<span class="keyword">if</span> (num &lt;= <span class="number">1</span>)	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span>	<span class="keyword">return</span> num * <span class="built_in">arguments</span>.callee(num - <span class="number">1</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>ES6的尾调用优化可以了解一下，写递归的时候可以在一定程度上优化栈空间。（严格模式下）</p>
+<p>其实就是在递归调用的时候，如果这个函数本身没必要继续存储了，那就直接弹出栈空间，比如下述代码中，优化前fib(n-1)的结果要一直存着，所以当前fib不能直接出栈，优化后由于当前fibImpl的返回结果只取决于下个fibImpl的返回结果，当前fibImpl不影响结果，因此当前fibImpl可以直接弹出栈空间，从而节省内存。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 优化前的斐波那契数列递归函数 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fib</span>(<span class="params">n</span>) </span>&#123; </span><br><span class="line">	<span class="keyword">if</span> (n &lt; <span class="number">2</span>) <span class="keyword">return</span> n; </span><br><span class="line">	<span class="keyword">return</span> fib(n - <span class="number">1</span>) + fib(n - <span class="number">2</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 优化后 */</span></span><br><span class="line"><span class="meta">"use strict"</span>; </span><br><span class="line"><span class="comment">// 基础框架</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fib</span>(<span class="params">n</span>) </span>&#123; </span><br><span class="line">	<span class="keyword">return</span> fibImpl(<span class="number">0</span>, <span class="number">1</span>, n); </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 执行递归</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibImpl</span>(<span class="params">a, b, n</span>) </span>&#123; </span><br><span class="line">	<span class="keyword">if</span> (n === <span class="number">0</span>)	<span class="keyword">return</span> a;</span><br><span class="line">	<span class="keyword">return</span> fibImpl(b, a + b, n - <span class="number">1</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>经常有人讲闭包引起内存泄漏，其实不全面；准确来说是低版本浏览器+引用计数+闭包引起的，IE9以前的DOM的垃圾回收机制是依靠引用计数的，而引用计数有循环引用的风险，闭包函数与DOM元素形成循环引用就会导致内存泄漏，即内存永远不被释放。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">assignHandler</span>(<span class="params"></span>) </span>&#123;<span class="comment">// 内存泄漏的样例</span></span><br><span class="line">	<span class="keyword">let</span> element = <span class="built_in">document</span>.getElementById(<span class="string">'someElement'</span>); </span><br><span class="line">	element.onclick = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(element.id); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">assignHandler</span>(<span class="params"></span>) </span>&#123;<span class="comment">// 内存泄漏的样例</span></span><br><span class="line">	<span class="keyword">let</span> element = <span class="built_in">document</span>.getElementById(<span class="string">'someElement'</span>); </span><br><span class="line">	element.onclick = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(element.id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -420,7 +433,7 @@
 <li><p>幂等方法：同参重复执行这个函数会得到同一个结果。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p1 === <span class="built_in">Promise</span>.resolve(p1)<span class="comment">//false,resolve是幂等方法</span></span><br><span class="line">p2 === <span class="built_in">Promise</span>.reject(p2)<span class="comment">//false,reject不是幂等方法</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>try，catch抓不住内部异步行为内的报错，要以异步形式去捕捉报错。</p>
+<li><p>try，catch抓不住内部异步行为内的报错，要以异步形式去捕捉异步的报错。</p>
 </li>
 <li><p>Promise.prototype.catch()实际只是Promise.prototype.then(undefined,onRejected)的语法糖。</p>
 </li>
@@ -431,7 +444,7 @@
 <li><p>await会先暂停异步函数后的代码，尝试解包，然后再恢复执行。</p>
 </li>
 <li><p>一道普通的Promise题</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="number">2</span>); </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="number">8</span>)); </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="number">9</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>); </span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">await</span> <span class="number">6</span>); </span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">7</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>); </span><br><span class="line">foo(); </span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>); </span><br><span class="line">bar(); </span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line"><span class="comment">// 打印顺序是1-9</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="number">2</span>); </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="number">8</span>)); </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="number">9</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>); </span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">await</span> <span class="number">6</span>); </span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">7</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>); </span><br><span class="line">foo(); </span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>); </span><br><span class="line">bar(); </span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line"><span class="comment">// 旧版标准打印顺序是1-9，因为await后跟Promise会有俩异步任务生成</span></span><br><span class="line"><span class="comment">// 后来TC39改了一次标准，现在只会生成一个异步任务了，也就是说，新版标准的打印顺序为:123458967</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -444,7 +457,7 @@
 </li>
 <li><p>outerHeight、outerWidth是整个浏览器的大小，innerHeight、innderWidth是浏览器的视口的大小。</p>
 </li>
-<li><p>setTimeout和setInterval都是不保证执行时间的，只能保证在这个时段加入到任务队列内。（JavaScript是单线程的）</p>
+<li><p>setTimeout和setInterval都是不保证执行时间的，只能保证在这个时段加入到任务队列内。（JavaScript是单线程的，不过浏览器是多线程的，setTimeout的最小时间间隔是4ms）</p>
 </li>
 <li><p>alert，confirm，prompt会阻塞代码执行，直到这些对话框消失。</p>
 </li>
@@ -453,8 +466,6 @@
 <li><p>对location.search，即查询字符串处理，可以考虑用<code>URLSearchParams</code>的API（不过即使手动处理也不麻烦）。</p>
 </li>
 <li><p>Location对象对应浏览器导航栏的相关信息，Navigator对应浏览器本身的一些相关信息（如浏览器版本）。</p>
-</li>
-<li><p><del>智慧树这些学习平台一般能检测插件，用IE10及以下的浏览器去访问可能可以避开，因为IE10及以下好像不支持插件检测（太年轻了）。</del></p>
 </li>
 <li><p>History对象出于安全考虑，不会允许你去获取访问过的URL，但可以通过为go()或forword()方法传入字符串，匹配到最近的页面，如<code>history.go(&quot;wrox.com&quot;)</code>，导航到最近的 wrox.com 页面。</p>
 </li>
@@ -574,6 +585,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/10/02/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E7%9A%84%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          关于前端的编码问题
+        
+      </div>
+    </a>
   
   
     <a href="/2022/06/24/TypeScript%E6%A6%82%E8%BF%B0/" id="article-nav-older" class="article-nav-link-wrap">
@@ -734,11 +754,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
