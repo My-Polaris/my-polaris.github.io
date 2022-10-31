@@ -16,7 +16,7 @@
 <meta property="og:description" content="削微做下笔记">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-23T16:26:26.000Z">
-<meta property="article:modified_time" content="2022-06-24T15:33:23.261Z">
+<meta property="article:modified_time" content="2022-10-07T14:14:07.106Z">
 <meta property="article:author" content="长青">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -202,8 +202,8 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">searchInsert</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid,left=<span class="number">0</span>,right=nums.<span class="built_in">size</span>()<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(left&lt;=right)<span class="comment">//①(left&lt;right)</span></span><br><span class="line">    &#123;</span><br><span class="line">        mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        <span class="comment">//之所以不用(left+right)/2的写法是因为left+right是有可能会造成溢出的,而用减法则避免了溢出</span></span><br><span class="line">        <span class="keyword">if</span>(nums[mid]&lt;target)    left=mid+<span class="number">1</span>;<span class="comment">//left此前的数都&lt;target</span></span><br><span class="line">        <span class="keyword">else</span>    right=mid<span class="number">-1</span>;<span class="comment">//②right=mid;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>left的定位：不满足判断条件的第一个元素。</strong></p>
 <p>需要注意的是，</p>
-<p>1.如果整个数组都&lt;target时，那么left是位于nums.size()+1的，这个时候如果用left访问数组的话就会越界，要小心。</p>
-<p>2.搜索区间为： [left, right]，left返回值[0,numsize()+1],right返回值[-1,nums.size()],mid取值[0,nums.size()-1]</p>
+<p>1.如果整个数组都&lt;target时，那么left是位于r+1的，这个时候如果用left访问数组的话就会越界，要小心。</p>
+<p>2.搜索区间为： [left, right]，left返回值[0,right+1],right返回值[-1,right],mid取值[0,right-1]</p>
 <p><strong>拓展</strong></p>
 <p>例题：<a href="https://leetcode-cn.com/problems/find-peak-element/" target="_blank" rel="noopener">寻找峰值</a> <a href="https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 11. 旋转数组的最小数字</a></p>
 <p>在某些时候，我们会用到<code>(left&lt;right)</code>的写法，不同处参考标准模板代码块的①和②</p>
@@ -604,11 +604,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">

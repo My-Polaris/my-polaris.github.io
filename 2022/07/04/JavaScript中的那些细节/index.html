@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://webvoobssdl.kugou.com/ba6560a8e81ac4c91e6ce06cd32a8aca.png">
 <meta property="article:published_time" content="2022-07-04T14:01:38.000Z">
-<meta property="article:modified_time" content="2022-10-02T01:49:37.338Z">
+<meta property="article:modified_time" content="2022-10-31T14:15:12.242Z">
 <meta property="article:author" content="长青">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
@@ -226,7 +226,7 @@
 </li>
 <li><p>js获取对象的值的时候，先调用对象的ValueOf()方法，再调用toString()方法。</p>
 </li>
-<li><p>parseInt与Number差别：parseInt遇到第一个非空字符不是数字(包括+-)直接返回NaN，空字符也是如此，而Number遇到空字符返回0；parseInt遇到非字符后会直接截断；parseInt接收第二个参数指定进制，不传或传0的话就判断开头的0x和0（非严格模式下依旧不支持八进制）。（注意parseInt第二个参数传0的话是和不传第二个参数一个效果的）</p>
+<li><p>parseInt与Number差别：parseInt面对空字符串直接返回NaN，而Number则返回0；parseInt遇到非数字字符后会直接截断，而Number则返回NaN；parseInt接收第二个参数指定进制，不传或传0的话就判断开头的0x和0（非严格模式下依旧不支持八进制）。（注意parseInt第二个参数传0的话是和不传第二个参数一个效果的）</p>
 </li>
 <li><p>parseFloat（对标parseInt）：会识别第一个’.’，只解析十进制值（会忽略开头的0，遇到0x会返回0）。</p>
 </li>
@@ -754,11 +754,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
